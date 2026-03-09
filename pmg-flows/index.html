@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMG 業務フロー As-Is</title>
+<style>
+:root {
+  --bg: #f7f8fa;
+  --card: #fff;
+  --border: #e2e5ea;
+  --text: #1a1d23;
+  --muted: #6b7280;
+  --red: #dc2626;
+  --blue: #2563eb;
+  --green: #059669;
+  --purple: #7c3aed;
+  --orange: #d97706;
+  --teal: #0d9488;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 1.5rem;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--red);
+}
+.header h1 { font-size: 1.3rem; margin-bottom: .2rem; }
+.header .logo { color: var(--red); font-weight: 800; letter-spacing: .05em; }
+.header .sub { color: var(--muted); font-size: .78rem; }
+
+/* ── Main Tabs ── */
+.main-tabs {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background: #1e293b;
+  border-radius: 10px;
+  padding: .3rem;
+}
+.main-tab {
+  flex: 1;
+  text-align: center;
+  padding: .7rem 1rem;
+  font-size: .85rem;
+  font-weight: 700;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all .2s;
+  color: #94a3b8;
+  border: none;
+  background: transparent;
+}
+.main-tab:hover { background: #334155; color: #e2e8f0; }
+.main-tab.active { background: #fff; color: #1e293b; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+.main-content { display: none; }
+.main-content.active { display: block; }
+
+/* ── Sub Tabs ── */
+.sub-tabs {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.sub-tab {
+  padding: .5rem 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  cursor: pointer;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: all .2s;
+}
+.sub-tab:hover { border-color: var(--blue); color: var(--blue); }
+.sub-tab.active { border-color: var(--blue); background: #eff6ff; color: var(--blue); }
+.sub-content { display: none; }
+.sub-content.active { display: block; }
+
+/* ── Section ── */
+.section {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.section h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--border);
+}
+.section h3 {
+  font-size: .88rem;
+  margin: 1rem 0 .5rem;
+  color: var(--blue);
+}
+.section h4 {
+  font-size: .82rem;
+  margin: .8rem 0 .4rem;
+  color: var(--text);
+}
+
+/* ── Phase Flow ── */
+.phase-flow {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+  overflow-x: auto;
+  padding: .5rem 0;
+  margin-bottom: 1rem;
+}
+.phase-block {
+  flex: 1;
+  min-width: 130px;
+  padding: .8rem .6rem;
+  text-align: center;
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+.phase-block:first-child { border-radius: 8px 0 0 8px; }
+.phase-block:last-child { border-radius: 0 8px 8px 0; }
+.phase-block .phase-label {
+  font-size: .6rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: .2rem;
+}
+.phase-block .phase-name {
+  font-size: .78rem;
+  font-weight: 700;
+}
+.phase-block .phase-owner {
+  font-size: .6rem;
+  color: var(--muted);
+  margin-top: .2rem;
+}
+.phase-block .phase-time {
+  font-size: .6rem;
+  color: var(--orange);
+  font-weight: 600;
+  margin-top: .2rem;
+}
+.phase-block:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: .7rem;
+  color: var(--muted);
+  z-index: 1;
+}
+.phase-block.blue { border-color: #bfdbfe; background: #eff6ff; }
+.phase-block.green { border-color: #a7f3d0; background: #ecfdf5; }
+.phase-block.purple { border-color: #c4b5fd; background: #f5f3ff; }
+.phase-block.orange { border-color: #fed7aa; background: #fff7ed; }
+.phase-block.red { border-color: #fecaca; background: #fef2f2; }
+
+/* ── Table ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .78rem;
+  margin: .8rem 0;
+}
+th, td {
+  padding: .5rem .6rem;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: #f1f5f9;
+  font-weight: 700;
+  font-size: .72rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+td { background: var(--card); }
+tr:hover td { background: #f8fafc; }
+
+/* ── Note / Alert ── */
+.note {
+  background: #eff6ff;
+  border-left: 4px solid var(--blue);
+  padding: .8rem 1rem;
+  margin: .8rem 0;
+  font-size: .78rem;
+  border-radius: 0 8px 8px 0;
+}
+.note.green { background: #ecfdf5; border-color: var(--green); }
+.note.orange { background: #fff7ed; border-color: var(--orange); }
+.note.red { background: #fef2f2; border-color: var(--red); }
+.note.purple { background: #f5f3ff; border-color: var(--purple); }
+
+/* ── Placeholder ── */
+.placeholder {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.placeholder .icon { font-size: 2rem; margin-bottom: .5rem; }
+
+/* ── Tag ── */
+.tag {
+  display: inline-block;
+  padding: .15rem .5rem;
+  border-radius: 4px;
+  font-size: .68rem;
+  font-weight: 600;
+}
+.tag.blue { background: #dbeafe; color: #1d4ed8; }
+.tag.green { background: #d1fae5; color: #047857; }
+.tag.orange { background: #fed7aa; color: #92400e; }
+.tag.red { background: #fecaca; color: #991b1b; }
+.tag.purple { background: #ede9fe; color: #6d28d9; }
+.tag.gray { background: #e5e7eb; color: #374151; }
+
+/* ── Diff markers ── */
+.diff-p { color: var(--blue); }
+.diff-emp { color: var(--green); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .main-tabs { flex-wrap: wrap; }
+  .main-tab { flex: 1 1 45%; }
+  .phase-flow { flex-direction: column; }
+  .phase-block { border-radius: 8px !important; margin-bottom: .3rem; }
+  .phase-block::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div style="margin-bottom:.8rem;">
+  <a href="../" style="font-size:.78rem;color:#6b7280;text-decoration:none;">&larr; Portal に戻る</a>
+</div>
+<div class="header">
+  <h1><span class="logo">KIKAGAKU</span> パートナーマネジメント企画</h1>
+  <div class="sub">業務フロー As-Is ｜ 最終更新: 2026-03-09</div>
+</div>
+
+<!-- ═══════════ MAIN TABS ═══════════ -->
+<div class="main-tabs">
+  <button class="main-tab" onclick="switchMain('recruit')">採用</button>
+  <button class="main-tab" onclick="switchMain('termination')">契約解除</button>
+  <button class="main-tab active" onclick="switchMain('training')">育成</button>
+  <button class="main-tab" onclick="switchMain('order')">発注・請求</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: 採用                                          -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="main-recruit" class="main-content">
+  <div class="placeholder">
+    <div class="icon">&#128221;</div>
+    <div>採用フロー（流入→採用→契約 / 媒体別）</div>
+    <div style="font-size:.75rem;margin-top:.3rem;">準備中 — 人事部・企画・管理部との連携フローを整備予定</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: 契約解除                                      -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="main-termination" class="main-content">
+  <div class="placeholder">
+    <div class="icon">&#128196;</div>
+    <div>契約解除フロー</div>
+    <div style="font-size:.75rem;margin-top:.3rem;">Notion 整備済み — HTML 転記予定</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: 育成                                          -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="main-training" class="main-content active">
+
+  <!-- Sub tabs -->
+  <div class="sub-tabs">
+    <button class="sub-tab active" onclick="switchSub('training','onboard')">オンボーディング</button>
+    <button class="sub-tab" onclick="switchSub('training','mock')">模擬講義</button>
+    <button class="sub-tab" onclick="switchSub('training','mock-outsource')">模擬講義（外注）</button>
+    <button class="sub-tab" onclick="switchSub('training','test')">登壇テスト</button>
+  </div>
+
+  <!-- ─── SUB: オンボーディング ─── -->
+  <div id="sub-training-onboard" class="sub-content active">
+
+    <div class="section">
+      <h2>P講師 オンボーディング As-Is（契約完了後〜1週間）</h2>
+
+      <div class="phase-flow">
+        <div class="phase-block blue">
+          <div class="phase-label">STEP 1</div>
+          <div class="phase-name">アカウント発行</div>
+          <div class="phase-owner">管理部</div>
+          <div class="phase-time">0.5h</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">STEP 2</div>
+          <div class="phase-name">オンボ説明<br>打合せ</div>
+          <div class="phase-owner">PMG</div>
+          <div class="phase-time">1.0h</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">STEP 3</div>
+          <div class="phase-name">業務オペ理解<br>（自習）</div>
+          <div class="phase-owner">P講師候補者</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">STEP 4</div>
+          <div class="phase-name">ツール設定<br>スライド作成</div>
+          <div class="phase-owner">P講師候補者</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">STEP 5</div>
+          <div class="phase-name">シフト提出<br>キカバディ確認</div>
+          <div class="phase-owner">P講師候補者</div>
+        </div>
+        <div class="phase-block purple">
+          <div class="phase-label">STEP 6</div>
+          <div class="phase-name">完了報告</div>
+          <div class="phase-owner">P講師候補者→PMG</div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>#</th><th>ステップ</th><th>担当者</th><th>アクション</th><th>使用ツール</th><th>所要時間</th><th>完了条件</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>A1</td><td>アカウント発行</td><td>管理部</td><td>Slack / Notion / Google WS / キカバディ のアカウント作成</td><td>各管理画面</td><td>0.5h</td><td>全アカウント発行完了</td></tr>
+          <tr><td>A2</td><td>オンボ説明打合せ</td><td>PMGメンバー</td><td>1on1で業務オペ・ルール・育成フローの説明</td><td>Zoom</td><td>1.0h</td><td>打合せ完了</td></tr>
+          <tr><td>A3</td><td>業務オペ理解（自習）</td><td>P講師候補者</td><td>アサイン/発注/請求/稼働管理フローの自己学習</td><td>Notion（個人ページ）</td><td>—</td><td>理解完了（自己申告）</td></tr>
+          <tr><td>A4</td><td>ガバナンス確認</td><td>P講師候補者</td><td>操作制限・外部共有NG・責任範囲の確認</td><td>Notion</td><td>—</td><td>確認完了（自己申告）</td></tr>
+          <tr><td>A5</td><td>ツール・アカウント設定</td><td>P講師候補者</td><td>各ツールのログイン・初期設定</td><td>Slack / Notion / キカバディ / Google Drive</td><td>—</td><td>全ツール利用可能</td></tr>
+          <tr><td>A6</td><td>自己紹介スライド作成</td><td>P講師候補者</td><td>登壇用自己紹介スライドの準備</td><td>Google Slides</td><td>—</td><td>完成</td></tr>
+          <tr><td>A7</td><td>キカバディ登録確認</td><td>P講師候補者</td><td>契約完了時点でPコースのプール登録済みであることを確認</td><td>キカバディ</td><td>—</td><td>登録確認</td></tr>
+          <tr><td>A8</td><td>シフト提出</td><td>P講師候補者</td><td>3ヶ月先の稼働可能日をGSSに記入</td><td>Google スプレッドシート</td><td>—</td><td>提出完了</td></tr>
+          <tr><td>A9</td><td>完了報告</td><td>P講師候補者</td><td>Slackでマネジメント企画チームへ完了連絡</td><td>Slack</td><td>—</td><td>報告完了</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>PMG工数: 1.5h</strong>（アカウント発行 0.5h + 説明打合せ 1.0h）<br>
+        原則1週間以内に完了。A3〜A9 は候補者の自己完遂。
+      </div>
+
+      <div class="note green">
+        <strong>補足</strong>: キカバディへのP講師プール登録は<strong>契約完了時点</strong>で完了済み。シフト提出も<strong>登壇テスト合格前</strong>から開始。
+      </div>
+    </div>
+
+    <!-- 正社員オンボーディング -->
+    <div class="section">
+      <h2>正社員講師 オンボーディング As-Is</h2>
+
+      <div class="phase-flow">
+        <div class="phase-block orange">
+          <div class="phase-label">Phase A</div>
+          <div class="phase-name">全社共通オンボ</div>
+          <div class="phase-owner">人事部門</div>
+          <div class="phase-time">1ヶ月</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">Phase B</div>
+          <div class="phase-name">部門専門オンボ</div>
+          <div class="phase-owner">SDG + メンター/エルダー</div>
+          <div class="phase-time">約2ヶ月</div>
+        </div>
+      </div>
+
+      <h3>Phase A: 全社共通オンボーディング（1ヶ月）<span class="tag orange" style="margin-left:.5rem;">PMG管轄外</span></h3>
+      <table>
+        <thead>
+          <tr><th>#</th><th>ステップ</th><th>担当者</th><th>アクション</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>A1</td><td>ミッション・バリュー理解</td><td>人事（オンボ担当）</td><td>全社戦略・中計の説明</td><td></td></tr>
+          <tr><td>A2</td><td>社内ルール・ツール理解</td><td>人事（オンボ担当）</td><td>福利厚生・勤怠・ツール説明</td><td></td></tr>
+          <tr><td>A3</td><td>クロス部門トーク</td><td>人事（オンボ担当）</td><td>他部門メンバーとの交流セッション</td><td></td></tr>
+          <tr><td>A4</td><td>行動宣言作成</td><td>新人 + メンター</td><td>Can / Will / OKR ベースの宣言作成</td><td>メンターが伴走</td></tr>
+          <tr><td>A5</td><td>日報・1on1</td><td>新人 + メンター</td><td>日次振り返り + 週次1on1</td><td>メンターが不安の受け皿</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Phase B: 部門専門オンボーディング（約2ヶ月）<span class="tag orange" style="margin-left:.5rem;">PMG管轄外</span></h3>
+      <table>
+        <thead>
+          <tr><th>#</th><th>ステップ</th><th>担当者</th><th>アクション</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>B1</td><td>担当コース内容理解</td><td>新人（自習）</td><td>講義資料の通読・技術インプット</td><td>エルダーがサポート</td></tr>
+          <tr><td>B2</td><td>マスター動画視聴</td><td>新人（自習）</td><td>ベテラン講師の登壇動画を視聴</td><td></td></tr>
+          <tr><td>B3</td><td>自己紹介スライド作成</td><td>新人</td><td>登壇用自己紹介スライド準備</td><td></td></tr>
+          <tr><td>B4</td><td>講義準備・自主練習</td><td>新人</td><td>手書きパート・実装パートの反復練習</td><td>エルダーがFB提供</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note orange">
+        <strong>注意</strong>: 正社員のオンボーディングは PMG 管轄外（人事部門・SDG が主管）。ただし模擬講義・登壇テストには PMG が関与。<br>
+        正社員の多くは ML/DL 初学者 or 講師未経験 → 知識インプットと講師力育成を同時並行。
+      </div>
+    </div>
+
+    <!-- 分掌整理 -->
+    <div class="section">
+      <h2>新人育成業務の分掌整理（正社員）</h2>
+      <div class="note purple">
+        <strong>出典</strong>: 部門人事（篠原さん引き継ぎ含む）+ PMG フィードバック（2026-03-04）<br>
+        To-Be では PMG が講師力育成の管轄責任を持ち、人材開発は全社オンボ・マインドセット支援に集中する方向。
+      </div>
+
+      <h3>Phase 1: 内定承諾〜入社まで</h3>
+      <table>
+        <thead><tr><th>#</th><th>業務内容</th><th>現担当（As-Is）</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>入社前ランチ設定・実施</td><td>人材開発</td><td></td></tr>
+          <tr><td>2</td><td>入社前トレーニング資料共有</td><td>人材開発</td><td></td></tr>
+          <tr><td>3</td><td>メンター・エルダー選定</td><td>人材開発</td><td></td></tr>
+          <tr><td>4</td><td>メンター/エルダーの依頼</td><td>人材開発</td><td></td></tr>
+          <tr><td>5</td><td>メンター・エルダーの工数起票</td><td>人材開発</td><td></td></tr>
+          <tr><td>6</td><td>育成チャンネルの作成</td><td>人材開発</td><td></td></tr>
+          <tr><td>7</td><td>メンター/エルダー kickoff</td><td>人材開発</td><td></td></tr>
+          <tr><td>8</td><td>入社日のランチ/懇親会手配</td><td>人材開発</td><td></td></tr>
+          <tr><td>9</td><td>入社日に向けた整備</td><td>人材開発</td><td>資料整理、カレンダー招待、組織図更新</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Phase 2: 入社〜登壇テスト合格まで</h3>
+      <table>
+        <thead><tr><th>#</th><th>業務内容</th><th>現担当（As-Is）</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>入社当日受け入れ</td><td>人材開発 / メンター / エルダー / (人事部)</td><td></td></tr>
+          <tr><td>2</td><td>日報確認</td><td>メンター / エルダー / 人材開発</td><td></td></tr>
+          <tr><td>3</td><td>朝会の参加</td><td>メンター / エルダー / (人材開発)</td><td></td></tr>
+          <tr><td>4</td><td>登壇テスト準備</td><td>メンター / エルダー / 人材開発</td><td>PCS複製、範囲選定→質問作成</td></tr>
+          <tr><td>5</td><td>登壇テストの実施</td><td>戸巻 + 岡野 + エルダー</td><td>SDG MGR + PMG リーダー + エルダー</td></tr>
+          <tr><td>6</td><td>登壇テスト合否判定</td><td>SDG MGR</td><td></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Phase 3: 登壇テスト合格後</h3>
+      <table>
+        <thead><tr><th>#</th><th>業務内容</th><th>現担当（As-Is）</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>コーポとの GitHub 連携</td><td>人材開発</td><td>労務連携兼ねて</td></tr>
+          <tr><td>2</td><td>合格者の GitHub team-instructor 招待</td><td>篠原さん</td><td></td></tr>
+          <tr><td>3</td><td>リーダー陣への合格共有</td><td>戸巻さん</td><td></td></tr>
+          <tr><td>4</td><td>辞令通達</td><td>人材開発</td><td></td></tr>
+          <tr><td>5</td><td>合格オンボ</td><td>人材開発</td><td>内容自体の精査が必要</td></tr>
+          <tr><td>6</td><td>Trainer オンボ（3ヶ月目研修）</td><td>人材開発</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ─── SUB: 模擬講義 ─── -->
+  <div id="sub-training-mock" class="sub-content">
+
+    <div class="section">
+      <h2>模擬講義サイクル As-Is</h2>
+
+      <div class="note">
+        正社員・P講師で<strong>同一フォーマット</strong>を使用。違いは回数・体制・進め方のみ。
+      </div>
+
+      <!-- P講師 -->
+      <h3>P講師の模擬講義（メンター1名体制）</h3>
+
+      <div class="phase-flow">
+        <div class="phase-block blue">
+          <div class="phase-label">D1</div>
+          <div class="phase-name">セクション<br>指定</div>
+          <div class="phase-owner">メンター</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">D2</div>
+          <div class="phase-name">Zoom予約</div>
+          <div class="phase-owner">P講師候補者</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">D3</div>
+          <div class="phase-name">採点者へ<br>事前連絡</div>
+          <div class="phase-owner">P講師候補者</div>
+        </div>
+        <div class="phase-block orange">
+          <div class="phase-label">D4</div>
+          <div class="phase-name">模擬講義<br>実施</div>
+          <div class="phase-owner">候補者+メンター</div>
+          <div class="phase-time">約50分</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">D5</div>
+          <div class="phase-name">フィードバック</div>
+          <div class="phase-owner">メンター</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">D6-7</div>
+          <div class="phase-name">録画UP<br>振り返り</div>
+          <div class="phase-owner">P講師候補者</div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr><th>#</th><th>ステップ</th><th>担当</th><th>アクション</th><th>ツール</th><th>時間</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>D1</td><td>セクション指定</td><td>メンター</td><td>手書きパート・実装パートの講義箇所を指定</td><td>Slack</td><td>5分</td></tr>
+          <tr><td>D2</td><td>Zoom予約</td><td>P講師候補者</td><td>模擬講義用Zoomリンク予約</td><td>Google Calendar（Zoom No.26/27）</td><td>—</td></tr>
+          <tr><td>D3</td><td>採点者への事前連絡</td><td>P講師候補者</td><td>講義資料リンク・チェックシートリンク・見てほしいポイント3つを共有</td><td>Slack</td><td>—</td></tr>
+          <tr><td>D4</td><td>模擬講義実施</td><td>候補者（講義）+ メンター（採点）</td><td>手書き15分+まとめ+Q&A+実装15分+まとめ+Q&A</td><td>Zoom（録画必須）</td><td>約50分</td></tr>
+          <tr><td>D5</td><td>フィードバック</td><td>メンター</td><td>パフォーマンスチェックシートに基づくFB</td><td>Google スプレッドシート</td><td>10分</td></tr>
+          <tr><td>D6</td><td>録画アップロード</td><td>P講師候補者</td><td>録画をDriveに格納</td><td>Google Drive</td><td>—</td></tr>
+          <tr><td>D7</td><td>振り返り・改善</td><td>P講師候補者</td><td>チェックシートSummaryで振り返り + 動画セルフレビュー</td><td>Google スプレッドシート</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note orange">
+        <strong>D1〜D7 を繰り返し</strong>: 平均4回（PMG工数 6.0h）+ 間接工数 2.0〜2.5h<br>
+        メンターが登壇テスト水準と判断するまで継続。移行判断は暗黙知。
+      </div>
+
+      <h4>評価基準</h4>
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td>評価項目</td><td>パフォーマンスチェックシート（7項目 / 各0〜3点 / 21点満点）</td></tr>
+          <tr><td>合格ライン</td><td>18点以上（登壇テストの基準と同一）</td></tr>
+          <tr><td>録画命名規則</td><td><code>模擬授業_講義箇所_yyyymmdd_name</code></td></tr>
+        </tbody>
+      </table>
+
+      <h4>模擬講義で意識する3原則</h4>
+      <ol style="font-size:.8rem;padding-left:1.5rem;margin:.5rem 0;">
+        <li>参加者は本当の受講生であり、本番の講義を行っている</li>
+        <li>受講生を活躍に繋げるために講義を行っている</li>
+        <li>失敗は悪くない、挑戦なくして成長はない</li>
+      </ol>
+
+      <!-- 正社員 -->
+      <h3>正社員の模擬講義（メンター + エルダー体制）</h3>
+
+      <div class="note">
+        フロー自体はP講師と同一（C1〜C7）。以下の点が異なる。
+      </div>
+
+      <table>
+        <thead><tr><th>観点</th><th>正社員</th><th>P講師</th></tr></thead>
+        <tbody>
+          <tr><td>育成体制</td><td>メンター + エルダー（2名体制）</td><td>メンター1名</td></tr>
+          <tr><td>模擬講義回数</td><td>多い（週2〜3回、回数非固定）</td><td>平均4回</td></tr>
+          <tr><td>事前連絡先</td><td>#team-ed-新人情報共有</td><td>メンターへ直接</td></tr>
+          <tr><td>採点者</td><td>メンター + エルダー</td><td>メンター1名</td></tr>
+          <tr><td>移行判断者</td><td>エルダー</td><td>メンター</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note red">
+        <strong>社内向けマニュアルが存在しない</strong>: P講師向けの資料（Notion）は整備済みだが、正社員向けに同等の資料がない。暗黙知に依存している。
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SUB: 模擬講義（外注） ─── -->
+  <div id="sub-training-mock-outsource" class="sub-content">
+
+    <div class="section">
+      <h2>模擬講義（外注メンター使用時）As-Is</h2>
+
+      <div class="note purple">
+        2026年2月から模擬講義のメンターを外注パートナー講師に委託する運用を開始。<br>
+        <strong>対象</strong>: P講師の模擬講義（正社員は対象外）
+      </div>
+
+      <div class="phase-flow">
+        <div class="phase-block purple">
+          <div class="phase-label">STEP 1</div>
+          <div class="phase-name">外注メンター<br>選定</div>
+          <div class="phase-owner">PMG</div>
+        </div>
+        <div class="phase-block purple">
+          <div class="phase-label">STEP 2</div>
+          <div class="phase-name">メンター依頼<br>オリエン</div>
+          <div class="phase-owner">PMG</div>
+        </div>
+        <div class="phase-block orange">
+          <div class="phase-label">STEP 3</div>
+          <div class="phase-name">模擬講義<br>サイクル</div>
+          <div class="phase-owner">候補者+外注メンター</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">STEP 4</div>
+          <div class="phase-name">ステータス<br>報告</div>
+          <div class="phase-owner">外注メンター→PMG</div>
+        </div>
+        <div class="phase-block red">
+          <div class="phase-label">STEP 5</div>
+          <div class="phase-name">登壇テスト<br>（PMG実施）</div>
+          <div class="phase-owner">PMG</div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>フェーズ</th><th>担当</th><th>内容</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>外注メンター選定</td><td>PMG</td><td>実績・品質に基づき外注可能なP講師を選定</td><td>選定基準の明文化は不十分</td></tr>
+          <tr><td>依頼・オリエンテーション</td><td>PMG</td><td>模擬講義の進め方・評価基準・報告フォーマットを説明</td><td></td></tr>
+          <tr><td>模擬講義実施（中間）</td><td>候補者 + 外注メンター</td><td>通常の模擬講義サイクル（D1〜D7）を外注メンターが主導</td><td>PMGは直接参加しない</td></tr>
+          <tr><td>ステータス報告</td><td>外注メンター → PMG</td><td>進捗・FBポイント・懸念事項の報告</td><td>報告頻度: 模擬講義ごと or 週次</td></tr>
+          <tr><td>登壇テスト判断</td><td>PMG</td><td>外注メンターの報告を踏まえテスト実施を判断</td><td>テスト自体はPMGメンバーが実施</td></tr>
+          <tr><td>登壇テスト後の振り返り</td><td>PMG + 外注メンター</td><td>育成過程の振り返り</td><td></td></tr>
+        </tbody>
+      </table>
+
+      <h3>通常メンターとの違い</h3>
+      <table>
+        <thead><tr><th>観点</th><th>通常（PMGメンター）</th><th>外注メンター</th></tr></thead>
+        <tbody>
+          <tr><td>模擬講義の主導</td><td>PMGメンター</td><td>外注P講師</td></tr>
+          <tr><td>PMGの関与</td><td>直接参加</td><td>報告ベースで間接管理</td></tr>
+          <tr><td>登壇テスト</td><td>PMGメンターが実施</td><td><strong>PMGメンバーが実施</strong>（外注はテスト不可）</td></tr>
+          <tr><td>品質管理</td><td>都度把握</td><td>報告のタイミングに依存</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note red">
+        <strong>社内向けマニュアルが存在しない</strong>: P講師向けの資料はあるが、外注メンターの選定基準・依頼フロー・報告フォーマットの社内マニュアルがない。
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── SUB: 登壇テスト ─── -->
+  <div id="sub-training-test" class="sub-content">
+
+    <div class="section">
+      <h2>登壇テスト As-Is</h2>
+
+      <div class="note">
+        評価基準（7項目/21点/18点以上）は正社員・P講師で<strong>同一</strong>。体制が異なる。
+      </div>
+
+      <!-- P講師 -->
+      <h3>P講師の登壇テスト（メンター1名体制）</h3>
+
+      <div class="phase-flow">
+        <div class="phase-block blue">
+          <div class="phase-label">E1</div>
+          <div class="phase-name">日程調整</div>
+          <div class="phase-owner">メンター</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">E2</div>
+          <div class="phase-name">講義箇所<br>決定</div>
+          <div class="phase-owner">メンター</div>
+        </div>
+        <div class="phase-block orange">
+          <div class="phase-label">E3</div>
+          <div class="phase-name">箇所通達<br>（10分前）</div>
+          <div class="phase-owner">メンター</div>
+        </div>
+        <div class="phase-block red">
+          <div class="phase-label">E4</div>
+          <div class="phase-name">テスト実施</div>
+          <div class="phase-owner">候補者+メンター</div>
+          <div class="phase-time">2.0h</div>
+        </div>
+        <div class="phase-block purple">
+          <div class="phase-label">E5</div>
+          <div class="phase-name">合否判定</div>
+          <div class="phase-owner">メンター</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">E6</div>
+          <div class="phase-name">結果通知</div>
+          <div class="phase-owner">メンター</div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>#</th><th>ステップ</th><th>担当</th><th>アクション</th><th>ツール</th><th>時間</th></tr></thead>
+        <tbody>
+          <tr><td>E1</td><td>日程調整</td><td>メンター</td><td>メンターのスケジュール確保</td><td>Google Calendar</td><td>—</td></tr>
+          <tr><td>E2</td><td>講義箇所決定</td><td>メンター</td><td>手書き・実装パートのテスト範囲を事前決定</td><td>—</td><td>—</td></tr>
+          <tr><td>E3</td><td>講義箇所通達</td><td>メンター</td><td>テスト開始<strong>10分前</strong>にSlackで通達</td><td>Slack</td><td>—</td></tr>
+          <tr><td>E4</td><td>テスト実施</td><td>候補者+メンター</td><td>手書き20分+Q&A+実装20分+Q&A</td><td>Zoom</td><td>2.0h</td></tr>
+          <tr><td>E5</td><td>合否判定</td><td>メンター</td><td>講師力18点以上 + 知識力8-9/10問</td><td>—</td><td>含む</td></tr>
+          <tr><td>E6</td><td>結果通知</td><td>メンター</td><td>合否と次アクションを伝達</td><td>Slack / Zoom</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>PMG工数: 2.0h</strong>（メンター1名 × 2.0h）。SDG MGR はP講師の登壇テストには参加しない。
+      </div>
+
+      <!-- 正社員 -->
+      <h3>正社員の登壇テスト（3名体制）</h3>
+
+      <div class="phase-flow">
+        <div class="phase-block blue">
+          <div class="phase-label">D1-D3</div>
+          <div class="phase-name">準備<br>（箇所決定等）</div>
+          <div class="phase-owner">エルダー</div>
+        </div>
+        <div class="phase-block orange">
+          <div class="phase-label">D4</div>
+          <div class="phase-name">オープニング<br>録画開始</div>
+          <div class="phase-owner">エルダー</div>
+        </div>
+        <div class="phase-block red">
+          <div class="phase-label">D5-D10</div>
+          <div class="phase-name">手書き+実装<br>模擬講義+Q&A</div>
+          <div class="phase-owner">新人 + 採点者3名</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">D11</div>
+          <div class="phase-name">全体総括</div>
+          <div class="phase-owner">SDG MGR</div>
+        </div>
+        <div class="phase-block purple">
+          <div class="phase-label">D13</div>
+          <div class="phase-name">合否判定<br>（合議）</div>
+          <div class="phase-owner">3名合議</div>
+          <div class="phase-time">30分</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">D14</div>
+          <div class="phase-name">結果通知</div>
+          <div class="phase-owner">エルダー</div>
+        </div>
+      </div>
+
+      <h4>正社員 vs P講師の登壇テスト体制比較</h4>
+      <table>
+        <thead><tr><th>観点</th><th>正社員</th><th>P講師</th></tr></thead>
+        <tbody>
+          <tr><td>評価者</td><td><strong>3名</strong>（エルダー + SDG MGR + PMG）</td><td><strong>1名</strong>（メンター）</td></tr>
+          <tr><td>合否判定</td><td>3名合議（30分）</td><td>メンター単独</td></tr>
+          <tr><td>全体総括</td><td>SDG MGR が実施</td><td>なし</td></tr>
+          <tr><td>講義箇所通達</td><td>10分前にSlack</td><td>10分前にSlack</td></tr>
+          <tr><td>評価基準</td><td>講師力18/21 + 知識力8-9/10問</td><td>同一</td></tr>
+          <tr><td>不合格時</td><td>再テスト or 協議</td><td>再テスト</td></tr>
+        </tbody>
+      </table>
+
+      <h4>評価ポイント</h4>
+      <table>
+        <thead><tr><th>評価軸</th><th>概要</th><th>方法</th></tr></thead>
+        <tbody>
+          <tr><td>講師力</td><td>受講生目線の説明・進行ができているか</td><td>PCS（7項目/21点/18点以上）</td></tr>
+          <tr><td>知識力</td><td>講義内容の本質的理解・質問対応力</td><td>模擬授業内の質問（約10問中8-9問正解）</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note red">
+        <strong>社内向けマニュアルが存在しない</strong>: P講師向けの登壇テスト実施方法は Notion に整備済みだが、正社員向けの同等資料がない。
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main-training -->
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- TAB: 発注・請求                                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="main-order" class="main-content">
+  <div class="placeholder">
+    <div class="icon">&#128176;</div>
+    <div>発注・請求フロー</div>
+    <div style="font-size:.75rem;margin-top:.3rem;">登壇系 / 登壇外 / 人月契約 — 管理部・人事部との連携フローを整備予定</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- SCRIPT                                             -->
+<!-- ═══════════════════════════════════════════════════ -->
+<script>
+function switchMain(id) {
+  document.querySelectorAll('.main-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.main-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('main-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function switchSub(mainId, subId) {
+  const parent = document.getElementById('main-' + mainId);
+  parent.querySelectorAll('.sub-content').forEach(el => el.classList.remove('active'));
+  parent.querySelectorAll('.sub-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('sub-' + mainId + '-' + subId).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>

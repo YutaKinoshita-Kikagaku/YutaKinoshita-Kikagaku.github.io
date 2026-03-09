@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMG Design Portal</title>
+<style>
+:root {
+  --bg: #f7f8fa;
+  --card: #fff;
+  --border: #e2e5ea;
+  --text: #1a1d23;
+  --muted: #6b7280;
+  --red: #dc2626;
+  --blue: #2563eb;
+  --green: #059669;
+  --purple: #7c3aed;
+  --orange: #d97706;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.header h1 {
+  font-size: 1.6rem;
+  margin-bottom: .3rem;
+}
+.header .logo {
+  color: var(--red);
+  font-weight: 800;
+  letter-spacing: .05em;
+}
+.header .sub {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.2rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.07);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--text);
+  transition: all .2s;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  transform: translateY(-2px);
+  border-color: var(--blue);
+}
+
+.card .card-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+.card .card-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+.card .card-desc {
+  font-size: .8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.card .card-tags {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+  margin-top: .2rem;
+}
+.tag {
+  display: inline-block;
+  padding: .15rem .5rem;
+  border-radius: 4px;
+  font-size: .65rem;
+  font-weight: 600;
+}
+.tag.blue { background: #dbeafe; color: #1d4ed8; }
+.tag.green { background: #d1fae5; color: #047857; }
+.tag.orange { background: #fed7aa; color: #92400e; }
+.tag.red { background: #fecaca; color: #991b1b; }
+.tag.purple { background: #ede9fe; color: #6d28d9; }
+.tag.gray { background: #e5e7eb; color: #374151; }
+
+.card.external::after {
+  content: '↗';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: .8rem;
+  color: var(--muted);
+}
+.card { position: relative; }
+
+.footer {
+  margin-top: 3rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: .72rem;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><span class="logo">KIKAGAKU</span> PMG Design Portal</h1>
+  <div class="sub">パートナーマネジメント企画 ｜ 設計・業務フロー・ドキュメント</div>
+</div>
+
+<div class="grid">
+
+  <a href="./pmg-flows/" class="card">
+    <div class="card-icon">&#128209;</div>
+    <div class="card-title">PMG 業務フロー As-Is</div>
+    <div class="card-desc">マネジメント企画チームの業務フローを可視化。採用・契約解除・育成・発注請求の4領域。</div>
+    <div class="card-tags">
+      <span class="tag green">育成 整備中</span>
+      <span class="tag gray">採用 準備中</span>
+      <span class="tag gray">発注・請求 準備中</span>
+    </div>
+  </a>
+
+  <a href="https://kikagaku.github.io/ttt-instructor-training/" class="card external" target="_blank">
+    <div class="card-icon">&#127891;</div>
+    <div class="card-title">TTT 講師力アップ研修</div>
+    <div class="card-desc">6軸 x 3レベルの講師育成プログラム。講座設計・業務フロー As-Is/To-Be・GAP分析。</div>
+    <div class="card-tags">
+      <span class="tag blue">講座設計</span>
+      <span class="tag purple">業務フロー</span>
+      <span class="tag orange">外部リンク</span>
+    </div>
+  </a>
+
+</div>
+
+<div class="footer">
+  PMG — Partner Management Group ｜ Kikagaku Inc.
+</div>
+
+</body>
+</html>
