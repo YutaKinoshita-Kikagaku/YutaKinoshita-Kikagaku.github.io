@@ -305,65 +305,265 @@ tr:hover td { background: #f8fafc; }
   <!-- ─── SUB: オンボーディング ─── -->
   <div id="sub-training-onboard" class="sub-content active">
 
+    <!-- ====== P講師オンボーディング ====== -->
     <div class="section">
-      <h2>P講師 オンボーディング As-Is（契約完了後〜1週間）</h2>
+      <h2>P講師 オンボーディング As-Is</h2>
+
+      <h3>実施背景</h3>
+      <ul style="font-size:.8rem;padding-left:1.5rem;margin:.5rem 0;">
+        <li>P講師との初回顔合わせ</li>
+        <li>契約後に必要な前準備が多く、包括的なすり合わせを行う</li>
+        <li>登壇コースの決定・育成コースの決定</li>
+        <li>アサイン・発注・請求フローの確認（毎月の定常業務の理解）</li>
+        <li>講義使用ツールの確認</li>
+        <li>キカガク講師としての期待値の伝達</li>
+      </ul>
+
+      <h3>オンボーディングの目的（ゴール状態）</h3>
+      <div class="note green">
+        <ul style="font-size:.8rem;padding-left:1.2rem;margin:0;">
+          <li>稼働開始前の ToDo について不明点がなく、全て実施ができる状態</li>
+          <li>個人ページの活用方法がイメージできる状態</li>
+          <li>アサイン・発注・請求のフローを把握している状態</li>
+          <li>登壇に必要なリンクについて最低限の説明ができている状態</li>
+          <li>育成コースを決定している状態</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ====== 全体フロー ====== -->
+    <div class="section">
+      <h2>全体フロー</h2>
+
+      <div class="phase-flow">
+        <div class="phase-block purple">
+          <div class="phase-label">Phase 0</div>
+          <div class="phase-name">PMG側<br>事前準備</div>
+          <div class="phase-owner">PMG</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">Phase 1</div>
+          <div class="phase-name">P講師へ<br>連絡・日程調整</div>
+          <div class="phase-owner">PMG→P講師</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">Phase 2</div>
+          <div class="phase-name">P講師<br>事前ToDo</div>
+          <div class="phase-owner">P講師（自習）</div>
+        </div>
+        <div class="phase-block orange">
+          <div class="phase-label">Phase 3</div>
+          <div class="phase-name">オンボ当日<br>（1h）</div>
+          <div class="phase-owner">PMG + P講師</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">Phase 4</div>
+          <div class="phase-name">初回模擬講義<br>までのToDo</div>
+          <div class="phase-owner">P講師（自習）</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">Phase 5</div>
+          <div class="phase-name">稼働までの<br>ToDo</div>
+          <div class="phase-owner">P講師（自習）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== Phase 0: PMG側事前準備 ====== -->
+    <div class="section">
+      <h2>Phase 0: PMG側 事前準備チェックリスト</h2>
+
+      <div class="note">
+        オンボーディング開始前に PMG 側で下記を全て準備してから実施する。
+      </div>
+
+      <table>
+        <thead><tr><th>#</th><th>準備項目</th><th>詳細</th><th>ツール</th></tr></thead>
+        <tbody>
+          <tr><td>0-1</td><td>キカガク for Business の招待</td><td>パートナー講師の for Business 登録方法マニュアルに従い招待</td><td>キカガク for Business 管理画面</td></tr>
+          <tr><td>0-2</td><td>評価シートの追加作成</td><td>名前: フルネーム、メイングレード:「-」、サポグレード:「C」、ウェイト: 月10日以上→「重点」/それ以下→「非重点」、生成AI領域の該当有無を入力</td><td>Notion（評価シートDB）</td></tr>
+          <tr><td>0-3</td><td>ToDo内の自己紹介URL変更</td><td>「受け入れToDoチェックリスト」トグル最下部の「その他」から、URLを本人の個別自己紹介ページに修正</td><td>Notion（個人ページ）</td></tr>
+          <tr><td>0-4</td><td>個人用ディレクトリの作成</td><td>Google Drive上に個人用ディレクトリを作成し、個人ページのURLを差し替え</td><td>Google Drive / Notion</td></tr>
+          <tr><td>0-5</td><td>SharePoint の招待</td><td>講義資料マスター: 表示権限 / 講師自己紹介スライド: 編集権限。<strong>メール招待URLからアクセスする旨を伝達</strong></td><td>SharePoint</td></tr>
+          <tr><td>0-6</td><td>登壇コース聞き取りシートの欄追加</td><td>登壇経験ファイルのマスターに新P講師の行を追加</td><td>Google スプレッドシート</td></tr>
+          <tr><td>0-7</td><td>P講師へオンボーディング連絡</td><td>Slackの個別チャネルで初回投稿（挨拶＋スケジューラーリンク共有）</td><td>Slack（ext-partner-〇〇さん）</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ====== Phase 1: 連絡・日程調整 ====== -->
+    <div class="section">
+      <h2>Phase 1: P講師への連絡・日程調整</h2>
+
+      <h3>初回投稿（契約・事前対応完了の確認後）</h3>
+      <div style="background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:1rem;font-size:.78rem;margin:.8rem 0;white-space:pre-line;">契約からオンボ前のご対応が完了されていることが確認とれました。
+諸々のご対応ありがとうございました！
+
+この後、稼働開始の準備に伴い、<strong>1時間ほど</strong>お時間をいただいて初回オリエンテーションを実施させていただきます。
+
+つきましては、以下の予約スケジューラーから、ご都合の良い日時で予約いただけますでしょうか？
+[スケジューラーURL]
+
+また、オリエンテーション内容と事前依頼事項は追ってスレッドにご連絡させていただきます。</div>
+
+      <h3>日程予約完了後の投稿（事前依頼事項）</h3>
+      <div style="background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:1rem;font-size:.78rem;margin:.8rem 0;">
+        <strong>オリエンテーション内容:</strong>
+        <ul style="padding-left:1.2rem;margin:.3rem 0;">
+          <li>個人ページの接続確認</li>
+          <li>パートナー講師向け資料一覧の疑問点解消</li>
+          <li>キカバディの活用について</li>
+          <li>毎月の発注フローについて</li>
+          <li>キカガク for Business について</li>
+          <li>毎月の請求フローについて</li>
+        </ul>
+        <strong>事前に取り組んでいただく事項:</strong>
+        <ul style="padding-left:1.2rem;margin:.3rem 0;">
+          <li>個人ページ右下の ToDo リストを実施しチェック（パートナー講師向け資料一覧は一読推奨）</li>
+          <li>キカガク for Business の招待メールからログイン可能状態にする</li>
+          <li>SharePoint の招待メールからログイン可能か確認（講義資料マスター + 自己紹介スライド）</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ====== Phase 3: 当日フロー ====== -->
+    <div class="section">
+      <h2>Phase 3: オンボーディング当日の流れ（約1時間）</h2>
+
+      <div class="note">
+        レコーディングは<strong>配布可</strong>。事前にP講師が資料確認済みの場合、説明は割愛可。
+      </div>
 
       <div class="phase-flow">
         <div class="phase-block blue">
-          <div class="phase-label">STEP 1</div>
-          <div class="phase-name">アカウント発行</div>
-          <div class="phase-owner">管理部</div>
-          <div class="phase-time">0.5h</div>
+          <div class="phase-label">1</div>
+          <div class="phase-name">挨拶</div>
+          <div class="phase-owner">PMG</div>
         </div>
         <div class="phase-block blue">
-          <div class="phase-label">STEP 2</div>
-          <div class="phase-name">オンボ説明<br>打合せ</div>
+          <div class="phase-label">2</div>
+          <div class="phase-name">目的整理</div>
           <div class="phase-owner">PMG</div>
-          <div class="phase-time">1.0h</div>
         </div>
         <div class="phase-block green">
-          <div class="phase-label">STEP 3</div>
-          <div class="phase-name">業務オペ理解<br>（自習）</div>
-          <div class="phase-owner">P講師候補者</div>
+          <div class="phase-label">3</div>
+          <div class="phase-name">事前ToDo<br>確認</div>
+          <div class="phase-owner">PMG+P講師</div>
         </div>
-        <div class="phase-block green">
-          <div class="phase-label">STEP 4</div>
-          <div class="phase-name">ツール設定<br>スライド作成</div>
-          <div class="phase-owner">P講師候補者</div>
-        </div>
-        <div class="phase-block green">
-          <div class="phase-label">STEP 5</div>
-          <div class="phase-name">シフト提出<br>キカバディ確認</div>
-          <div class="phase-owner">P講師候補者</div>
+        <div class="phase-block orange">
+          <div class="phase-label">4</div>
+          <div class="phase-name">アサイン・発注<br>請求フロー</div>
+          <div class="phase-owner">同期実施</div>
         </div>
         <div class="phase-block purple">
-          <div class="phase-label">STEP 6</div>
-          <div class="phase-name">完了報告</div>
-          <div class="phase-owner">P講師候補者→PMG</div>
+          <div class="phase-label">5</div>
+          <div class="phase-name">リンク確認<br>ツール説明</div>
+          <div class="phase-owner">同期実施</div>
+        </div>
+        <div class="phase-block red">
+          <div class="phase-label">6</div>
+          <div class="phase-name">登壇コース<br>選定</div>
+          <div class="phase-owner">PMG+P講師</div>
         </div>
       </div>
 
       <table>
-        <thead>
-          <tr><th>#</th><th>ステップ</th><th>担当者</th><th>アクション</th><th>使用ツール</th><th>所要時間</th><th>完了条件</th></tr>
-        </thead>
+        <thead><tr><th>#</th><th>アジェンダ</th><th>内容</th><th>備考</th></tr></thead>
         <tbody>
-          <tr><td>A1</td><td>アカウント発行</td><td>管理部</td><td>Slack / Notion / Google WS / キカバディ のアカウント作成</td><td>各管理画面</td><td>0.5h</td><td>全アカウント発行完了</td></tr>
-          <tr><td>A2</td><td>オンボ説明打合せ</td><td>PMGメンバー</td><td>1on1で業務オペ・ルール・育成フローの説明</td><td>Zoom</td><td>1.0h</td><td>打合せ完了</td></tr>
-          <tr><td>A3</td><td>業務オペ理解（自習）</td><td>P講師候補者</td><td>アサイン/発注/請求/稼働管理フローの自己学習</td><td>Notion（個人ページ）</td><td>—</td><td>理解完了（自己申告）</td></tr>
-          <tr><td>A4</td><td>ガバナンス確認</td><td>P講師候補者</td><td>操作制限・外部共有NG・責任範囲の確認</td><td>Notion</td><td>—</td><td>確認完了（自己申告）</td></tr>
-          <tr><td>A5</td><td>ツール・アカウント設定</td><td>P講師候補者</td><td>各ツールのログイン・初期設定</td><td>Slack / Notion / キカバディ / Google Drive</td><td>—</td><td>全ツール利用可能</td></tr>
-          <tr><td>A6</td><td>自己紹介スライド作成</td><td>P講師候補者</td><td>登壇用自己紹介スライドの準備</td><td>Google Slides</td><td>—</td><td>完成</td></tr>
-          <tr><td>A7</td><td>キカバディ登録確認</td><td>P講師候補者</td><td>契約完了時点でPコースのプール登録済みであることを確認</td><td>キカバディ</td><td>—</td><td>登録確認</td></tr>
-          <tr><td>A8</td><td>シフト提出</td><td>P講師候補者</td><td>3ヶ月先の稼働可能日をGSSに記入</td><td>Google スプレッドシート</td><td>—</td><td>提出完了</td></tr>
-          <tr><td>A9</td><td>完了報告</td><td>P講師候補者</td><td>Slackでマネジメント企画チームへ完了連絡</td><td>Slack</td><td>—</td><td>報告完了</td></tr>
+          <tr><td>1</td><td>挨拶</td><td>面接実施のお礼、今後の参画に関するお礼</td><td></td></tr>
+          <tr><td>2</td><td>オンボの目的整理</td><td>5つのゴール状態を確認</td><td></td></tr>
+          <tr><td>3</td><td>個人ページ事前確認の有無</td><td>事前に確認済みの場合はドキュメント説明を割愛可</td><td></td></tr>
+          <tr><td>4</td><td>受け入れToDo（オリエン前）の確認</td><td>チェックが付いていない項目を確認</td><td></td></tr>
+          <tr><td>5</td><td>受け入れToDo（同期実施）</td><td>アサイン・発注・請求フロー の同期的確認（下記詳細）</td><td>最重要パート</td></tr>
+          <tr><td>6</td><td>必要リンクの確認</td><td>forBiz / 自己紹介スライド / コンテンツDB / 個人ディレクトリ</td><td></td></tr>
+          <tr><td>7</td><td>登壇コースの選定</td><td>面接で議論したコースの仮設定 → 模擬講義単元決定</td><td></td></tr>
+          <tr><td>8</td><td>服装規定の確認</td><td>男性: スーツ・ネクタイ着用（模擬講義も同様）</td><td></td></tr>
+          <tr><td>9</td><td>模擬講義前ToDoの確認</td><td>初回模擬講義までに終わらせる項目を伝達</td><td></td></tr>
+          <tr><td>10</td><td>稼働までのToDoの確認</td><td>終了後に完了報告をもらう旨を伝達</td><td></td></tr>
         </tbody>
       </table>
 
-      <div class="note">
-        <strong>PMG工数: 1.5h</strong>（アカウント発行 0.5h + 説明打合せ 1.0h）<br>
-        原則1週間以内に完了。A3〜A9 は候補者の自己完遂。
-      </div>
+      <!-- アサイン・発注・請求の詳細 -->
+      <h3>当日の重点説明: アサイン・発注・請求フロー</h3>
+
+      <h4>アサイン・発注フロー</h4>
+      <ul style="font-size:.8rem;padding-left:1.5rem;margin:.5rem 0;">
+        <li>アサイン依頼から<strong>5営業日以内</strong>にご連絡がない場合、別講師へ連絡する可能性がある</li>
+        <li>稼働合意の最終チェックのため、Slackで全体連絡が入る</li>
+        <li>全件問題なければ発注書を送付</li>
+        <li>発注書送付後、連絡が著しく取れないP講師は稼働キャンセルの可能性あり</li>
+      </ul>
+
+      <h4>請求フロー</h4>
+      <table>
+        <thead><tr><th>区分</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>個人契約 vs 法人契約</strong></td><td>個人: キカガク指定フォーマット必須 / 法人: 指定フォーマットでも先方フォーマットでもOK</td></tr>
+          <tr><td><strong>エージェント経由の場合</strong></td><td>
+            ① P講師→キカガクに請求内容の確認依頼<br>
+            ② キカガクが発注書と請求書を照合確認<br>
+            ③ P講師へ請求書を返却（問題ない旨伝達）<br>
+            ④ P講師→エージェント（例: Findy）へ請求書送付<br>
+            ⑤ エージェント→キカガクへ仲介手数料込みで請求<br>
+            ⑥ キカガク→エージェントへ入金<br>
+            ⑦ エージェント→P講師へ稼働分支払い
+          </td></tr>
+          <tr><td><strong>立替経費</strong></td><td>
+            <ul style="padding-left:1rem;margin:0;">
+              <li>通常の交通費: 申請・領収書の提出<strong>不要</strong></li>
+              <li>案件ごとの立替: PjM/PjL/P講師チームの<strong>事前承認</strong>が必要（事後報告NG）</li>
+              <li>例: ScreenBrush等アプリ、Wi-Fi持込</li>
+              <li>ホテル: 原則<strong>¥12,000上限</strong>（繁忙期は都度承認で超過可）</li>
+              <li>交通費: 上限金額・距離の明確基準なし。遠方出張時は支払い、在来線で十分な場合は新幹線不可</li>
+            </ul>
+          </td></tr>
+        </tbody>
+      </table>
+
+      <!-- 必要リンク確認 -->
+      <h3>当日の確認: 必要リンク・ツール</h3>
+      <table>
+        <thead><tr><th>ツール</th><th>確認内容</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td><strong>キカガク for Business</strong></td><td>
+            <ul style="padding-left:1rem;margin:0;">
+              <li>ログイン確認、講義資料・動画の付与チェック</li>
+              <li>アセスメント説明: DXリテラシー標準 Aランク（80%以上）+ DXスキル標準 Bランク（70%以上）</li>
+              <li>各30分程度（4択）、回数制限なし、クリアまで実施</li>
+            </ul>
+          </td><td></td></tr>
+          <tr><td><strong>自己紹介スライド</strong></td><td>
+            他の講師を参考に記載: 名前、役職（「機械学習講師、DXコンサルタント」で統一）、経歴、現在の業務、保有資格・趣味
+          </td><td><strong>「業務委託」の記載はNG</strong>。キカガク講師として稼働いただく旨伝達</td></tr>
+          <tr><td><strong>コンテンツDB</strong></td><td>forBiz にない資料はこちらから取得。講義動画・資料が見られることを確認</td><td></td></tr>
+          <tr><td><strong>個人用ディレクトリ</strong></td><td>
+            ローカル保存・マイドライブ使用は基本禁止。個人用ディレクトリに格納する運用。<br>
+            ダウンロードは可だが、使用後は必ずディレクトリに戻す。ローカル保存分は契約解除時に削除
+          </td><td></td></tr>
+        </tbody>
+      </table>
+
+      <!-- 登壇コース選定 -->
+      <h3>当日の実施: 登壇コース選定</h3>
+      <ul style="font-size:.8rem;padding-left:1.5rem;margin:.5rem 0;">
+        <li>一次・最終面接で議論した登壇コースの仮設定</li>
+        <li>登壇経験ファイルのマスターをコピーし、個人ディレクトリにGSSを立ち上げ、P講師本人に入力いただく</li>
+        <li>模擬講義と登壇テストの説明 → 登壇コースから模擬講義実施単元を決定・伝達</li>
+        <li>決定後、Notion 個人ページ上部プロパティ欄に入力</li>
+      </ul>
+    </div>
+
+    <!-- ====== Phase 4-5: ToDo ====== -->
+    <div class="section">
+      <h2>Phase 4-5: オンボ後のToDo</h2>
+
+      <table>
+        <thead><tr><th>タイミング</th><th>ToDo</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag orange">初回模擬講義までに</span></td><td>受け入れToDo（初回模擬講義までに実施）を全て完了</td><td>日が近い場合でも<strong>模擬講義マスター動画の視聴は必須</strong></td></tr>
+          <tr><td><span class="tag blue">稼働までに</span></td><td>受け入れToDo（稼働までに実施）を全て完了</td><td>終了後にPMGへ完了報告を依頼</td></tr>
+        </tbody>
+      </table>
 
       <div class="note green">
         <strong>補足</strong>: キカバディへのP講師プール登録は<strong>契約完了時点</strong>で完了済み。シフト提出も<strong>登壇テスト合格前</strong>から開始。
