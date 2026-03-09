@@ -779,64 +779,120 @@ tr:hover td { background: #f8fafc; }
       <h2>模擬講義（外注メンター使用時）As-Is</h2>
 
       <div class="note purple">
-        2026年2月から模擬講義のメンターを外注パートナー講師に委託する運用を開始。<br>
-        <strong>対象</strong>: P講師の模擬講義（正社員は対象外）
+        模擬講義を合格しているパートナー講師に外注する場合のフロー。
       </div>
 
       <div class="phase-flow">
-        <div class="phase-block purple">
-          <div class="phase-label">STEP 1</div>
-          <div class="phase-name">外注メンター<br>選定</div>
+        <div class="phase-block blue">
+          <div class="phase-label">Phase 1</div>
+          <div class="phase-name">初回連絡<br>発注</div>
           <div class="phase-owner">PMG</div>
         </div>
-        <div class="phase-block purple">
-          <div class="phase-label">STEP 2</div>
-          <div class="phase-name">メンター依頼<br>オリエン</div>
-          <div class="phase-owner">PMG</div>
+        <div class="phase-block green">
+          <div class="phase-label">Phase 2</div>
+          <div class="phase-name">初回担当時<br>対応</div>
+          <div class="phase-owner">PMG同席</div>
         </div>
         <div class="phase-block orange">
-          <div class="phase-label">STEP 3</div>
-          <div class="phase-name">模擬講義<br>サイクル</div>
-          <div class="phase-owner">候補者+外注メンター</div>
-        </div>
-        <div class="phase-block blue">
-          <div class="phase-label">STEP 4</div>
-          <div class="phase-name">ステータス<br>報告</div>
-          <div class="phase-owner">外注メンター→PMG</div>
+          <div class="phase-label">Phase 3</div>
+          <div class="phase-name">進行管理</div>
+          <div class="phase-owner">P講師→PMG</div>
         </div>
         <div class="phase-block red">
-          <div class="phase-label">STEP 5</div>
-          <div class="phase-name">登壇テスト<br>（PMG実施）</div>
+          <div class="phase-label">Phase 4</div>
+          <div class="phase-name">登壇テスト<br>実施</div>
+          <div class="phase-owner">3名調整</div>
+        </div>
+        <div class="phase-block purple">
+          <div class="phase-label">Phase 5</div>
+          <div class="phase-name">合格・不合格<br>対応</div>
           <div class="phase-owner">PMG</div>
         </div>
       </div>
 
+      <!-- Phase 1 -->
+      <h3>Phase 1: 初回連絡・発注プロセス</h3>
+
       <table>
-        <thead><tr><th>フェーズ</th><th>担当</th><th>内容</th><th>備考</th></tr></thead>
+        <thead><tr><th>#</th><th>アクション</th><th>担当</th><th>詳細</th><th>ツール</th></tr></thead>
         <tbody>
-          <tr><td>外注メンター選定</td><td>PMG</td><td>実績・品質に基づき外注可能なP講師を選定</td><td>選定基準の明文化は不十分</td></tr>
-          <tr><td>依頼・オリエンテーション</td><td>PMG</td><td>模擬講義の進め方・評価基準・報告フォーマットを説明</td><td></td></tr>
-          <tr><td>模擬講義実施（中間）</td><td>候補者 + 外注メンター</td><td>通常の模擬講義サイクル（D1〜D7）を外注メンターが主導</td><td>PMGは直接参加しない</td></tr>
-          <tr><td>ステータス報告</td><td>外注メンター → PMG</td><td>進捗・FBポイント・懸念事項の報告</td><td>報告頻度: 模擬講義ごと or 週次</td></tr>
-          <tr><td>登壇テスト判断</td><td>PMG</td><td>外注メンターの報告を踏まえテスト実施を判断</td><td>テスト自体はPMGメンバーが実施</td></tr>
-          <tr><td>登壇テスト後の振り返り</td><td>PMG + 外注メンター</td><td>育成過程の振り返り</td><td></td></tr>
+          <tr><td>1</td><td>内容伝達</td><td>PMG</td><td>初めて模擬講義を担当するP講師にSlack上でテキストにて内容を伝達</td><td>Slack</td></tr>
+          <tr><td>2</td><td>承諾確認</td><td>P講師</td><td>内容を確認しOKを返答</td><td>Slack</td></tr>
+          <tr><td>3</td><td>発注書送付</td><td>PMG</td><td>OKをもらえたら発注書をメールで送付し確認してもらう</td><td>メール</td></tr>
         </tbody>
       </table>
 
-      <h3>通常メンターとの違い</h3>
-      <table>
-        <thead><tr><th>観点</th><th>通常（PMGメンター）</th><th>外注メンター</th></tr></thead>
-        <tbody>
-          <tr><td>模擬講義の主導</td><td>PMGメンター</td><td>外注P講師</td></tr>
-          <tr><td>PMGの関与</td><td>直接参加</td><td>報告ベースで間接管理</td></tr>
-          <tr><td>登壇テスト</td><td>PMGメンターが実施</td><td><strong>PMGメンバーが実施</strong>（外注はテスト不可）</td></tr>
-          <tr><td>品質管理</td><td>都度把握</td><td>報告のタイミングに依存</td></tr>
-        </tbody>
-      </table>
-
-      <div class="note red">
-        <strong>社内向けマニュアルが存在しない</strong>: P講師向けの資料はあるが、外注メンターの選定基準・依頼フロー・報告フォーマットの社内マニュアルがない。
+      <div class="note">
+        <strong>連携が必要な内容:</strong>
+        <ul style="font-size:.8rem;margin:.4rem 0 0 1.2rem;">
+          <li>模擬講義の内容</li>
+          <li>担当いただきたい人数</li>
+          <li>コース</li>
+          <li>コスト・報酬金額</li>
+        </ul>
       </div>
+
+      <!-- Phase 2 -->
+      <h3>Phase 2: 初回担当時の対応</h3>
+
+      <div class="note orange">
+        初めて担当するP講師に対して、以下2つの対応が必要（日程調整が必要）:
+      </div>
+
+      <table>
+        <thead><tr><th>#</th><th>アクション</th><th>担当</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>初回模擬講義に同席</td><td>PMG</td><td>初回の模擬講義にPMGが同席して品質確認</td></tr>
+          <tr><td>2</td><td>概念説明の機会設定</td><td>PMG</td><td>模擬講義の概念について同期で説明する機会を設定</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Phase 3 -->
+      <h3>Phase 3: 進行管理</h3>
+
+      <table>
+        <thead><tr><th>#</th><th>アクション</th><th>担当</th><th>詳細</th><th>ツール</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>マニュアルに沿って進行</td><td>P講師</td><td>模擬講義の担当者マニュアルに沿って進行</td><td>Notion</td></tr>
+          <tr><td>2</td><td>都度報告</td><td>P講師→PMG</td><td>模擬講義の様子を都度報告</td><td>Slack</td></tr>
+          <tr><td>3</td><td>フィードバック</td><td>PMG</td><td>気になる点があればSlack上でテキストでコメント・やり取り</td><td>Slack</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Phase 4 -->
+      <h3>Phase 4: 登壇テスト実施</h3>
+
+      <table>
+        <thead><tr><th>#</th><th>アクション</th><th>担当</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>テスト可否確認</td><td>PMG</td><td>模擬講義終了後、登壇テスト実施可能かを確認</td></tr>
+          <tr><td>2</td><td>登壇テスト案内</td><td>PMG</td><td>問題なければ登壇テストの案内を実施</td></tr>
+          <tr><td>3</td><td>3名日程調整</td><td>PMG</td><td>以下3名の日程調整が必要</td></tr>
+          <tr><td>4</td><td>繋ぎ実施</td><td>PMG</td><td>初回模擬講義終了後、模擬講義を見るP講師と実施するP講師の繋ぎを実施</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>3名日程調整の対象:</strong>
+        <ul style="font-size:.8rem;margin:.4rem 0 0 1.2rem;">
+          <li>模擬講義を実施するパートナー講師</li>
+          <li>模擬講義を見るパートナー講師</li>
+          <li>内部チーム（PMG）</li>
+        </ul>
+      </div>
+
+      <!-- Phase 5 -->
+      <h3>Phase 5: 合格・不合格の対応</h3>
+
+      <table>
+        <thead><tr><th>結果</th><th>対応</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr><td>共通</td><td>結果すり合わせ</td><td>登壇テスト後、実際にすり合わせを行い、結果を受験者に連絡</td></tr>
+          <tr><td style="color:#059669;font-weight:700;">合格</td><td>プロセス終了</td><td>—</td></tr>
+          <tr><td style="color:#dc2626;font-weight:700;">不合格</td><td>模擬講義担当者と相談</td><td>再度登壇テストを実施する場合は追加発注し、同席</td></tr>
+          <tr><td style="color:#dc2626;font-weight:700;">不合格</td><td>PMG受け取り（オプション）</td><td>対応が難しい場合や受け取れない場合は、PMG側で受け取ることも可能</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -846,125 +902,99 @@ tr:hover td { background: #f8fafc; }
     <div class="section">
       <h2>登壇テスト As-Is</h2>
 
-      <div class="note">
-        評価基準（7項目/21点/18点以上）は正社員・P講師で<strong>同一</strong>。体制が異なる。
-      </div>
-
-      <!-- P講師 -->
-      <h3>P講師の登壇テスト（メンター1名体制）</h3>
-
       <div class="phase-flow">
         <div class="phase-block blue">
-          <div class="phase-label">E1</div>
-          <div class="phase-name">日程調整</div>
-          <div class="phase-owner">メンター</div>
-        </div>
-        <div class="phase-block blue">
-          <div class="phase-label">E2</div>
-          <div class="phase-name">講義箇所<br>決定</div>
-          <div class="phase-owner">メンター</div>
+          <div class="phase-label">Phase 1</div>
+          <div class="phase-name">案内<br>日程調整</div>
+          <div class="phase-owner">PMG（2名）</div>
         </div>
         <div class="phase-block orange">
-          <div class="phase-label">E3</div>
-          <div class="phase-name">箇所通達<br>（10分前）</div>
-          <div class="phase-owner">メンター</div>
-        </div>
-        <div class="phase-block red">
-          <div class="phase-label">E4</div>
-          <div class="phase-name">テスト実施</div>
-          <div class="phase-owner">候補者+メンター</div>
-          <div class="phase-time">2.0h</div>
+          <div class="phase-label">Phase 2</div>
+          <div class="phase-name">テスト実施<br>1h15m</div>
+          <div class="phase-owner">P講師+PMG2名</div>
         </div>
         <div class="phase-block purple">
-          <div class="phase-label">E5</div>
-          <div class="phase-name">合否判定</div>
-          <div class="phase-owner">メンター</div>
+          <div class="phase-label">Phase 3</div>
+          <div class="phase-name">FB・評価<br>合否すり合わせ</div>
+          <div class="phase-owner">PMG2名</div>
         </div>
         <div class="phase-block green">
-          <div class="phase-label">E6</div>
-          <div class="phase-name">結果通知</div>
-          <div class="phase-owner">メンター</div>
+          <div class="phase-label">Phase 4</div>
+          <div class="phase-name">合否通知<br>次アクション</div>
+          <div class="phase-owner">PMG→Slack</div>
         </div>
       </div>
 
+      <!-- アクションアイテム -->
+      <h3>アクションアイテム（チェックリスト）</h3>
+
       <table>
-        <thead><tr><th>#</th><th>ステップ</th><th>担当</th><th>アクション</th><th>ツール</th><th>時間</th></tr></thead>
+        <thead><tr><th>#</th><th>アクション</th><th>タイミング</th></tr></thead>
         <tbody>
-          <tr><td>E1</td><td>日程調整</td><td>メンター</td><td>メンターのスケジュール確保</td><td>Google Calendar</td><td>—</td></tr>
-          <tr><td>E2</td><td>講義箇所決定</td><td>メンター</td><td>手書き・実装パートのテスト範囲を事前決定</td><td>—</td><td>—</td></tr>
-          <tr><td>E3</td><td>講義箇所通達</td><td>メンター</td><td>テスト開始<strong>10分前</strong>にSlackで通達</td><td>Slack</td><td>—</td></tr>
-          <tr><td>E4</td><td>テスト実施</td><td>候補者+メンター</td><td>手書き20分+Q&A+実装20分+Q&A</td><td>Zoom</td><td>2.0h</td></tr>
-          <tr><td>E5</td><td>合否判定</td><td>メンター</td><td>講師力18点以上 + 知識力8-9/10問</td><td>—</td><td>含む</td></tr>
-          <tr><td>E6</td><td>結果通知</td><td>メンター</td><td>合否と次アクションを伝達</td><td>Slack / Zoom</td><td>—</td></tr>
+          <tr><td>1</td><td>模擬講義が一通り終了し、登壇テストが見込める段階になったら案内を送る</td><td>模擬講義終了後</td></tr>
+          <tr><td>2</td><td>スケジューラー送付時には、個人と企画チームメンバーの<strong>2名分</strong>の日程調整が可能なものを用意する</td><td>案内時</td></tr>
+          <tr><td>3</td><td>スケジューラー送付時に、テスト範囲を設定して事前に送る</td><td>案内時</td></tr>
+          <tr><td>4</td><td>テスト実施後、同期でフィードバックを行う（パフォーマンスチェックシートは見せない）</td><td>テスト後</td></tr>
+          <tr><td>5</td><td>点数はテキストで後日伝える</td><td>テスト後</td></tr>
+          <tr><td>6</td><td>フィードバック終了後、パートナー講師退席後に2名で合否をすり合わせる</td><td>FB後</td></tr>
+          <tr><td>7</td><td>すり合わせた結果をSlackでパートナー講師に送る</td><td>すり合わせ後</td></tr>
+          <tr><td>8</td><td>不合格の場合は、不合格を伝えた上で再テスト用のスケジューラーを改めて送る</td><td>不合格時</td></tr>
         </tbody>
       </table>
 
-      <div class="note">
-        <strong>PMG工数: 2.0h</strong>（メンター1名 × 2.0h）。SDG MGR はP講師の登壇テストには参加しない。
-      </div>
+      <!-- Phase 1 -->
+      <h3>Phase 1: 登壇テスト実施の案内プロセス</h3>
 
-      <!-- 正社員 -->
-      <h3>正社員の登壇テスト（3名体制）</h3>
-
-      <div class="phase-flow">
-        <div class="phase-block blue">
-          <div class="phase-label">D1-D3</div>
-          <div class="phase-name">準備<br>（箇所決定等）</div>
-          <div class="phase-owner">エルダー</div>
-        </div>
-        <div class="phase-block orange">
-          <div class="phase-label">D4</div>
-          <div class="phase-name">オープニング<br>録画開始</div>
-          <div class="phase-owner">エルダー</div>
-        </div>
-        <div class="phase-block red">
-          <div class="phase-label">D5-D10</div>
-          <div class="phase-name">手書き+実装<br>模擬講義+Q&A</div>
-          <div class="phase-owner">新人 + 採点者3名</div>
-        </div>
-        <div class="phase-block blue">
-          <div class="phase-label">D11</div>
-          <div class="phase-name">全体総括</div>
-          <div class="phase-owner">SDG MGR</div>
-        </div>
-        <div class="phase-block purple">
-          <div class="phase-label">D13</div>
-          <div class="phase-name">合否判定<br>（合議）</div>
-          <div class="phase-owner">3名合議</div>
-          <div class="phase-time">30分</div>
-        </div>
-        <div class="phase-block green">
-          <div class="phase-label">D14</div>
-          <div class="phase-name">結果通知</div>
-          <div class="phase-owner">エルダー</div>
-        </div>
-      </div>
-
-      <h4>正社員 vs P講師の登壇テスト体制比較</h4>
       <table>
-        <thead><tr><th>観点</th><th>正社員</th><th>P講師</th></tr></thead>
+        <thead><tr><th>#</th><th>アクション</th><th>担当</th><th>詳細</th><th>ツール</th></tr></thead>
         <tbody>
-          <tr><td>評価者</td><td><strong>3名</strong>（エルダー + SDG MGR + PMG）</td><td><strong>1名</strong>（メンター）</td></tr>
-          <tr><td>合否判定</td><td>3名合議（30分）</td><td>メンター単独</td></tr>
-          <tr><td>全体総括</td><td>SDG MGR が実施</td><td>なし</td></tr>
-          <tr><td>講義箇所通達</td><td>10分前にSlack</td><td>10分前にSlack</td></tr>
-          <tr><td>評価基準</td><td>講師力18/21 + 知識力8-9/10問</td><td>同一</td></tr>
-          <tr><td>不合格時</td><td>再テスト or 協議</td><td>再テスト</td></tr>
+          <tr><td>1</td><td>テスト案内</td><td>PMG</td><td>模擬講義が一通り終了し、登壇テストが見込める段階になったら案内を実施</td><td>Slack</td></tr>
+          <tr><td>2</td><td>スケジューラー送付</td><td>PMG</td><td>模擬講義実施スレッドでスケジューラーを投稿し、そこから予約してもらう</td><td>スケジューラー</td></tr>
+          <tr><td>3</td><td>テスト範囲送付</td><td>PMG</td><td>スケジューラー送付時にテスト範囲を設定して事前に送付</td><td>Slack</td></tr>
         </tbody>
       </table>
 
-      <h4>評価ポイント</h4>
+      <div class="note orange">
+        <strong>スケジューラーの注意点:</strong> 個人だけでなく、パートナーマネジメント企画チームの<strong>2名</strong>で確認するため、両者の日程調整が可能なものを用意する必要がある。
+      </div>
+
+      <!-- Phase 2 -->
+      <h3>Phase 2: 登壇テストの実施内容</h3>
+
       <table>
-        <thead><tr><th>評価軸</th><th>概要</th><th>方法</th></tr></thead>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
         <tbody>
-          <tr><td>講師力</td><td>受講生目線の説明・進行ができているか</td><td>PCS（7項目/21点/18点以上）</td></tr>
-          <tr><td>知識力</td><td>講義内容の本質的理解・質問対応力</td><td>模擬授業内の質問（約10問中8-9問正解）</td></tr>
+          <tr><td>実施時間</td><td><strong>1時間15分</strong></td></tr>
+          <tr><td>構成</td><td>15分のイントロダクション + 模擬講義（範囲2つ指定）</td></tr>
+          <tr><td>テスト範囲</td><td>スケジューラー送付時に設定し、事前に送付済み</td></tr>
+          <tr><td>参加者</td><td>P講師候補者 + PMGメンバー2名</td></tr>
         </tbody>
       </table>
 
-      <div class="note red">
-        <strong>社内向けマニュアルが存在しない</strong>: P講師向けの登壇テスト実施方法は Notion に整備済みだが、正社員向けの同等資料がない。
-      </div>
+      <!-- Phase 3 -->
+      <h3>Phase 3: フィードバックと評価プロセス</h3>
+
+      <table>
+        <thead><tr><th>#</th><th>アクション</th><th>担当</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>同期フィードバック</td><td>PMG</td><td>フィードバックは同期で実施するが、<strong>パフォーマンスチェックシートは見せない</strong></td></tr>
+          <tr><td>2</td><td>点数通知</td><td>PMG</td><td>点数は<strong>テキストで後日</strong>伝える</td></tr>
+          <tr><td>3</td><td>P講師退席</td><td>P講師</td><td>フィードバック終了後、パートナー講師に退席してもらう</td></tr>
+          <tr><td>4</td><td>合否すり合わせ</td><td>PMG 2名</td><td>退席後、2名で合否をすり合わせ</td></tr>
+          <tr><td>5</td><td>結果通知</td><td>PMG</td><td>すり合わせた結果をSlackでテキスト送信</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Phase 4 -->
+      <h3>Phase 4: 合否判定後の対応</h3>
+
+      <table>
+        <thead><tr><th>結果</th><th>対応</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr><td style="color:#059669;font-weight:700;">合格</td><td>プロセス終了</td><td>—</td></tr>
+          <tr><td style="color:#dc2626;font-weight:700;">不合格</td><td>再テスト実施</td><td>不合格を伝えた上で、新しいスケジューラーを送付して再テスト日を決定</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
