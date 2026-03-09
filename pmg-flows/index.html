@@ -678,107 +678,97 @@ tr:hover td { background: #f8fafc; }
   <div id="sub-training-mock" class="sub-content">
 
     <div class="section">
-      <h2>模擬講義サイクル As-Is</h2>
-
-      <div class="note">
-        正社員・P講師で<strong>同一フォーマット</strong>を使用。違いは回数・体制・進め方のみ。
-      </div>
-
-      <!-- P講師 -->
-      <h3>P講師の模擬講義（メンター1名体制）</h3>
+      <h2>模擬講義 As-Is</h2>
 
       <div class="phase-flow">
         <div class="phase-block blue">
-          <div class="phase-label">D1</div>
-          <div class="phase-name">セクション<br>指定</div>
-          <div class="phase-owner">メンター</div>
+          <div class="phase-label">Phase 1</div>
+          <div class="phase-name">初回オンボ<br>準備段階</div>
+          <div class="phase-owner">PMG</div>
         </div>
         <div class="phase-block green">
-          <div class="phase-label">D2</div>
-          <div class="phase-name">Zoom予約</div>
-          <div class="phase-owner">P講師候補者</div>
-        </div>
-        <div class="phase-block green">
-          <div class="phase-label">D3</div>
-          <div class="phase-name">採点者へ<br>事前連絡</div>
-          <div class="phase-owner">P講師候補者</div>
+          <div class="phase-label">Phase 2</div>
+          <div class="phase-name">予約・実施</div>
+          <div class="phase-owner">P講師→PMG</div>
         </div>
         <div class="phase-block orange">
-          <div class="phase-label">D4</div>
-          <div class="phase-name">模擬講義<br>実施</div>
-          <div class="phase-owner">候補者+メンター</div>
-          <div class="phase-time">約50分</div>
+          <div class="phase-label">Phase 3</div>
+          <div class="phase-name">実施後<br>フォローアップ</div>
+          <div class="phase-owner">PMG</div>
         </div>
-        <div class="phase-block blue">
-          <div class="phase-label">D5</div>
-          <div class="phase-name">フィードバック</div>
-          <div class="phase-owner">メンター</div>
-        </div>
-        <div class="phase-block green">
-          <div class="phase-label">D6-7</div>
-          <div class="phase-name">録画UP<br>振り返り</div>
-          <div class="phase-owner">P講師候補者</div>
+        <div class="phase-block purple">
+          <div class="phase-label">Phase 4</div>
+          <div class="phase-name">繰り返し<br>→登壇テスト</div>
+          <div class="phase-owner">PMG判断</div>
         </div>
       </div>
 
+      <!-- Phase 1 -->
+      <h3>Phase 1: 初回オンボーディング・準備段階</h3>
+
       <table>
-        <thead>
-          <tr><th>#</th><th>ステップ</th><th>担当</th><th>アクション</th><th>ツール</th><th>時間</th></tr>
-        </thead>
+        <thead><tr><th>#</th><th>アクション</th><th>担当</th><th>詳細</th><th>ツール</th></tr></thead>
         <tbody>
-          <tr><td>D1</td><td>セクション指定</td><td>メンター</td><td>手書きパート・実装パートの講義箇所を指定</td><td>Slack</td><td>5分</td></tr>
-          <tr><td>D2</td><td>Zoom予約</td><td>P講師候補者</td><td>模擬講義用Zoomリンク予約</td><td>Google Calendar（Zoom No.26/27）</td><td>—</td></tr>
-          <tr><td>D3</td><td>採点者への事前連絡</td><td>P講師候補者</td><td>講義資料リンク・チェックシートリンク・見てほしいポイント3つを共有</td><td>Slack</td><td>—</td></tr>
-          <tr><td>D4</td><td>模擬講義実施</td><td>候補者（講義）+ メンター（採点）</td><td>手書き15分+まとめ+Q&A+実装15分+まとめ+Q&A</td><td>Zoom（録画必須）</td><td>約50分</td></tr>
-          <tr><td>D5</td><td>フィードバック</td><td>メンター</td><td>パフォーマンスチェックシートに基づくFB</td><td>Google スプレッドシート</td><td>10分</td></tr>
-          <tr><td>D6</td><td>録画アップロード</td><td>P講師候補者</td><td>録画をDriveに格納</td><td>Google Drive</td><td>—</td></tr>
-          <tr><td>D7</td><td>振り返り・改善</td><td>P講師候補者</td><td>チェックシートSummaryで振り返り + 動画セルフレビュー</td><td>Google スプレッドシート</td><td>—</td></tr>
+          <tr><td>1</td><td>模擬講義の範囲決定</td><td>PMG</td><td>初回オンボーディングの中で模擬講義の範囲を決定</td><td>—</td></tr>
+          <tr><td>2</td><td>模擬講義スレッド作成</td><td>PMG</td><td>個人チャンネルに模擬講義用のスレッドを立てる</td><td>Slack</td></tr>
+          <tr><td>3</td><td>初回案内送信</td><td>PMG</td><td>以下をSlackで送信</td><td>Slack</td></tr>
         </tbody>
       </table>
-
-      <div class="note orange">
-        <strong>D1〜D7 を繰り返し</strong>: 平均4回（PMG工数 6.0h）+ 間接工数 2.0〜2.5h<br>
-        メンターが登壇テスト水準と判断するまで継続。移行判断は暗黙知。
-      </div>
-
-      <h4>評価基準</h4>
-      <table>
-        <thead><tr><th>項目</th><th>内容</th></tr></thead>
-        <tbody>
-          <tr><td>評価項目</td><td>パフォーマンスチェックシート（7項目 / 各0〜3点 / 21点満点）</td></tr>
-          <tr><td>合格ライン</td><td>18点以上（登壇テストの基準と同一）</td></tr>
-          <tr><td>録画命名規則</td><td><code>模擬授業_講義箇所_yyyymmdd_name</code></td></tr>
-        </tbody>
-      </table>
-
-      <h4>模擬講義で意識する3原則</h4>
-      <ol style="font-size:.8rem;padding-left:1.5rem;margin:.5rem 0;">
-        <li>参加者は本当の受講生であり、本番の講義を行っている</li>
-        <li>受講生を活躍に繋げるために講義を行っている</li>
-        <li>失敗は悪くない、挑戦なくして成長はない</li>
-      </ol>
-
-      <!-- 正社員 -->
-      <h3>正社員の模擬講義（メンター + エルダー体制）</h3>
 
       <div class="note">
-        フロー自体はP講師と同一（C1〜C7）。以下の点が異なる。
+        <strong>初回案内で送信する内容:</strong>
+        <ul style="font-size:.8rem;margin:.4rem 0 0 1.2rem;">
+          <li>模擬講義の範囲</li>
+          <li>準備してほしい内容</li>
+          <li>スケジューラーのリンク</li>
+          <li>模擬講義の流れ</li>
+        </ul>
       </div>
 
+      <!-- Phase 2 -->
+      <h3>Phase 2: 予約・実施段階</h3>
+
       <table>
-        <thead><tr><th>観点</th><th>正社員</th><th>P講師</th></tr></thead>
+        <thead><tr><th>#</th><th>アクション</th><th>担当</th><th>詳細</th><th>ツール</th></tr></thead>
         <tbody>
-          <tr><td>育成体制</td><td>メンター + エルダー（2名体制）</td><td>メンター1名</td></tr>
-          <tr><td>模擬講義回数</td><td>多い（週2〜3回、回数非固定）</td><td>平均4回</td></tr>
-          <tr><td>事前連絡先</td><td>#team-ed-新人情報共有</td><td>メンターへ直接</td></tr>
-          <tr><td>採点者</td><td>メンター + エルダー</td><td>メンター1名</td></tr>
-          <tr><td>移行判断者</td><td>エルダー</td><td>メンター</td></tr>
+          <tr><td>1</td><td>予約</td><td>P講師候補者</td><td>スケジューラーから模擬講義の予約を実施</td><td>スケジューラー</td></tr>
+          <tr><td>2</td><td>範囲確定・伝達</td><td>PMG</td><td>予約受領後、具体的な範囲を確定してP講師に伝達</td><td>Slack</td></tr>
+          <tr><td>3</td><td>模擬講義実施</td><td>P講師候補者 + PMG</td><td>模擬講義当日に実施</td><td>Zoom</td></tr>
         </tbody>
       </table>
 
-      <div class="note red">
-        <strong>社内向けマニュアルが存在しない</strong>: P講師向けの資料（Notion）は整備済みだが、正社員向けに同等の資料がない。暗黙知に依存している。
+      <!-- Phase 3 -->
+      <h3>Phase 3: 実施後のフォローアップ</h3>
+
+      <table>
+        <thead><tr><th>#</th><th>アクション</th><th>担当</th><th>詳細</th><th>ツール</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>PCS共有</td><td>PMG</td><td>パフォーマンスチェックシートのリンクを共有</td><td>Slack</td></tr>
+          <tr><td>2</td><td>録画共有</td><td>PMG</td><td>録画のリンクとパスワードを共有</td><td>Slack</td></tr>
+          <tr><td>3</td><td>次回範囲指定</td><td>PMG</td><td>次回の模擬講義の範囲を伝達</td><td>Slack</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>次回予定の設定方法（2つのオプション）:</strong>
+        <ol style="font-size:.8rem;margin:.4rem 0 0 1.2rem;">
+          <li>PCS・録画リンクと一緒に次回スケジューラーを送る</li>
+          <li>最初のスケジューラー送付時に2〜3日分先に設定しておく</li>
+        </ol>
       </div>
+
+      <!-- Phase 4 -->
+      <h3>Phase 4: 繰り返しと登壇テストへの移行</h3>
+
+      <div class="note orange">
+        <strong>登壇テストの合格が見込めるまで以下を繰り返す:</strong>
+        <ol style="font-size:.8rem;margin:.4rem 0 0 1.2rem;">
+          <li>範囲を指定して模擬講義を実施</li>
+          <li>パフォーマンスチェックシートと録画の案内</li>
+        </ol>
+        登壇テストの合格が見込める段階で、登壇テストの案内を実施。
+      </div>
+
     </div>
   </div>
 
@@ -984,11 +974,279 @@ tr:hover td { background: #f8fafc; }
 <!-- TAB: 発注・請求                                    -->
 <!-- ═══════════════════════════════════════════════════ -->
 <div id="main-order" class="main-content">
-  <div class="placeholder">
-    <div class="icon">&#128176;</div>
-    <div>発注・請求フロー</div>
-    <div style="font-size:.75rem;margin-top:.3rem;">登壇系 / 登壇外 / 人月契約 — 管理部・人事部との連携フローを整備予定</div>
+
+  <!-- Sub tabs -->
+  <div class="sub-tabs">
+    <button class="sub-tab" onclick="switchSub('order','per-case')">登壇系</button>
+    <button class="sub-tab" onclick="switchSub('order','non-case')">登壇外</button>
+    <button class="sub-tab active" onclick="switchSub('order','manmonth')">人月契約</button>
   </div>
+
+  <!-- ─── SUB: 登壇系 ─── -->
+  <div id="sub-order-per-case" class="sub-content">
+    <div class="placeholder">
+      <div class="icon">&#128221;</div>
+      <div>登壇系の発注・請求フロー</div>
+      <div style="font-size:.75rem;margin-top:.3rem;">準備中</div>
+    </div>
+  </div>
+
+  <!-- ─── SUB: 登壇外 ─── -->
+  <div id="sub-order-non-case" class="sub-content">
+    <div class="placeholder">
+      <div class="icon">&#128221;</div>
+      <div>登壇外の発注・請求フロー</div>
+      <div style="font-size:.75rem;margin-top:.3rem;">準備中</div>
+    </div>
+  </div>
+
+  <!-- ─── SUB: 人月契約 ─── -->
+  <div id="sub-order-manmonth" class="sub-content active">
+
+    <!-- 概要 -->
+    <div class="section">
+      <h2>人月契約フロー As-Is</h2>
+
+      <div class="note green">
+        <strong>本資料の目的</strong>: 個別契約から人月契約に変更する場合のフローと運用について把握する
+      </div>
+
+      <h3>関連資料</h3>
+      <ul style="font-size:.8rem;padding-left:1.5rem;margin:.5rem 0;">
+        <li>P講師契約更新に関する諸注意事項（Notion）</li>
+        <li>稼働確認表（Google Drive）</li>
+        <li>稼働管理・請求のフロー【月額固定報酬の場合】（Notion）</li>
+      </ul>
+    </div>
+
+    <!-- 全体フロー -->
+    <div class="section">
+      <h2>全体フロー</h2>
+
+      <div class="phase-flow">
+        <div class="phase-block purple">
+          <div class="phase-label">STEP 1</div>
+          <div class="phase-name">該当パートナー<br>選定</div>
+          <div class="phase-owner">PMG</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">STEP 2</div>
+          <div class="phase-name">契約内容の<br>決定</div>
+          <div class="phase-owner">PMG</div>
+        </div>
+        <div class="phase-block orange">
+          <div class="phase-label">STEP 3</div>
+          <div class="phase-name">パートナーとの<br>打ち合わせ</div>
+          <div class="phase-owner">PMG + P講師</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">STEP 4</div>
+          <div class="phase-name">契約内容の<br>最終合意</div>
+          <div class="phase-owner">PMG + 法務</div>
+        </div>
+        <div class="phase-block red">
+          <div class="phase-label">STEP 5</div>
+          <div class="phase-name">契約締結</div>
+          <div class="phase-owner">人事 + P講師</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">STEP 6</div>
+          <div class="phase-name">稼働承認<br>フロー伝達</div>
+          <div class="phase-owner">PMG → P講師</div>
+        </div>
+        <div class="phase-block purple">
+          <div class="phase-label">STEP 7</div>
+          <div class="phase-name">稼働工数<br>チェック</div>
+          <div class="phase-owner">PMG（定常）</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="section">
+      <h2>STEP 1: 該当パートナーの選定</h2>
+      <p style="font-size:.8rem;">要件にあったパートナー講師を選定する。</p>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="section">
+      <h2>STEP 2: 契約内容の決定</h2>
+
+      <p style="font-size:.8rem;margin-bottom:.8rem;">以下の内容を決定し、Notion の管理DBに記載する。</p>
+
+      <table>
+        <thead><tr><th>決定事項</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr><td>稼働工数</td><td>月あたりの工数を決定</td></tr>
+          <tr><td>報酬金額</td><td>月額固定報酬額を決定</td></tr>
+          <tr><td>稼働内容の追加有無</td><td>登壇・コンテンツ作成以外で依頼したいものがあるか（例: 模擬講義）</td></tr>
+          <tr><td>契約時期</td><td>契約開始日・期間を決定</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="section">
+      <h2>STEP 3: 該当パートナーとの打ち合わせ</h2>
+
+      <h3>3-1. 日程調整</h3>
+      <p style="font-size:.8rem;margin:.5rem 0;">パートナー講師へ同期的に打診するため、日程調整を行う。</p>
+
+      <h3>3-2. 事前準備</h3>
+
+      <h4>契約書の準備</h4>
+      <ul style="font-size:.8rem;padding-left:1.5rem;margin:.5rem 0;">
+        <li>契約書テンプレートの黄色い部分を、STEP 2 で決まった契約内容に修正</li>
+        <li>テンプレート: <code>業務委託契約書（講師・コンテンツ制作委託_MG有）</code></li>
+      </ul>
+
+      <h4>説明用資料の準備</h4>
+      <ul style="font-size:.8rem;padding-left:1.5rem;margin:.5rem 0;">
+        <li>Notion の説明用 DB にページを作成しておく</li>
+        <li>打ち合わせ時はこのページと契約書を使いながら説明</li>
+      </ul>
+
+      <h3>3-3. 打ち合わせ時の注意点</h3>
+      <div class="note orange">
+        Notion「契約締結時の留意点」ページを事前に参照すること。
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="section">
+      <h2>STEP 4: 契約内容の最終合意</h2>
+
+      <div class="phase-flow">
+        <div class="phase-block blue">
+          <div class="phase-label">4-1</div>
+          <div class="phase-name">社内承認</div>
+          <div class="phase-owner">PMG</div>
+        </div>
+        <div class="phase-block purple">
+          <div class="phase-label">4-2</div>
+          <div class="phase-name">契約書作成<br>→ 法務チェック</div>
+          <div class="phase-owner">PMG → 法務</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">4-3</div>
+          <div class="phase-name">P講師へ<br>最終確認依頼</div>
+          <div class="phase-owner">PMG → P講師</div>
+        </div>
+      </div>
+
+      <table>
+        <thead><tr><th>#</th><th>ステップ</th><th>担当</th><th>アクション</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>4-1</td><td>社内側での承認</td><td>PMG</td><td>パートナー講師とすり合わせた内容を元に、社内で承認をとる</td><td></td></tr>
+          <tr><td>4-2</td><td>契約書作成 → 法務チェック</td><td>PMG → 法務</td><td>承認が取れた内容で契約書を修正し、法務へチェック依頼</td><td>Slack の法務チャンネルでスレッド依頼</td></tr>
+          <tr><td>4-3</td><td>P講師へ最終確認依頼</td><td>PMG</td><td>法務チェック済みの契約書を PDF 化して Slack で共有し、最終確認していただく</td><td>事前に質問をいただいていた場合はここで回答</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="section">
+      <h2>STEP 5: 契約締結</h2>
+
+      <p style="font-size:.8rem;margin-bottom:.8rem;">合意がもらえたら、人事担当者へ契約書の送付を依頼する。</p>
+
+      <table>
+        <thead><tr><th>ステップ</th><th>担当</th><th>アクション</th></tr></thead>
+        <tbody>
+          <tr><td>契約書送付依頼</td><td>PMG → 人事担当者</td><td>Slack で人事担当者へ依頼</td></tr>
+          <tr><td>契約書送付</td><td>人事担当者</td><td>MF クラウド契約でP講師へ送付・連絡</td></tr>
+          <tr><td>サイン完了</td><td>P講師</td><td>MF クラウド契約でサイン → 契約締結</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note orange">
+        <strong>注意</strong>:
+        <ul style="padding-left:1.2rem;margin:.3rem 0;font-size:.78rem;">
+          <li>人事担当者 = パートナー講師の契約周りを担当している方</li>
+          <li>サイン済みかどうかは<strong>人事側でないと確認ができない</strong>。契約開始前にサイン完了有無は必ず確認すること</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="section">
+      <h2>STEP 6: 稼働承認フローの伝達</h2>
+
+      <div class="note">
+        個別契約の形態と異なり、<strong>稼働確認表の記載と記載内容の承認依頼</strong>が必要になるので、手順についてパートナー講師に伝達する。
+      </div>
+
+      <h3>6-1. 事前準備</h3>
+
+      <table>
+        <thead><tr><th>#</th><th>準備項目</th><th>アクション</th><th>ツール</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>6-1a</td>
+            <td>稼働確認表の準備</td>
+            <td>Google Drive のテンプレを複製し、GSS に該当パートナー講師を編集権限で招待</td>
+            <td>Google Drive / GSS</td>
+          </tr>
+          <tr>
+            <td>6-1b</td>
+            <td>マニュアルのコピペ</td>
+            <td>Notion「稼働管理・請求のフロー【月額固定報酬の場合】」を個人ページにコピーし、GSS リンクを差し替え</td>
+            <td>Notion</td>
+          </tr>
+          <tr>
+            <td>6-1c</td>
+            <td>Slack ワークフロー追加</td>
+            <td>パートナー講師の個人チャンネルに「パートナー講師 稼働承認」ワークフローを追加</td>
+            <td>Slack</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Slack ワークフロー追加手順</h4>
+      <ol style="font-size:.8rem;padding-left:1.5rem;margin:.5rem 0;">
+        <li>チャンネル上の「ワークフロー」を押す（表示されていない場合は＋を押すと存在する）</li>
+        <li>「パートナー講師 稼働承認」を選択し、右下の「追加」を押す（表示されない場合は「パートナー講師」と検索）</li>
+      </ol>
+
+      <h3>6-2. Slack でフロー伝達</h3>
+      <p style="font-size:.8rem;margin:.5rem 0;">稼働フローについて Slack の個人チャンネルで伝達する。</p>
+
+      <h3>6-3. PMG 側の承認方法</h3>
+      <div class="note green">
+        承認依頼者がワークフローを立ち上げると、確認対応者にメンションが飛ぶ。<br>
+        DM で送られてくる<strong>請求書・立替経費精算書</strong>を照合し、問題なければ「承認する」を押す。
+      </div>
+    </div>
+
+    <!-- STEP 7 -->
+    <div class="section">
+      <h2>STEP 7:【定常業務】稼働工数のチェック</h2>
+
+      <div class="note purple">
+        毎週の企画定例で、稼働工数を<strong>3ヶ月先まで</strong>確認する（例: 現在12月の場合、3月まで）。
+      </div>
+
+      <h3>確認ツール</h3>
+      <table>
+        <thead><tr><th>ツール</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td>人月契約稼働工数確認 DB（Notion）</td><td>稼働工数の記録・管理</td></tr>
+          <tr><td>Looker Studio</td><td>工数確認ダッシュボード</td></tr>
+        </tbody>
+      </table>
+
+      <h3>工数不足時のアクション</h3>
+      <div class="note red">
+        工数が不足している場合は、<strong>前月の中旬まで</strong>に以下を実施:
+        <ul style="padding-left:1.2rem;margin:.3rem 0;font-size:.78rem;">
+          <li>アサイン T に今後アサイン可能な案件があるか確認</li>
+          <li>コンテンツ改修等、登壇業務以外の依頼を検討</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /sub-order-manmonth -->
+
 </div>
 
 <!-- ═══════════════════════════════════════════════════ -->
