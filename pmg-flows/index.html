@@ -865,11 +865,167 @@ tr:hover td { background: #f8fafc; }
 
   <!-- ─── SUB: 契約解除 ─── -->
   <div id="sub-partner-termination" class="sub-content">
-    <div class="placeholder">
-      <div class="icon">&#128196;</div>
-      <div>P講師 契約解除フロー</div>
-      <div style="font-size:.75rem;margin-top:.3rem;">Notion 整備済み — HTML 転記予定</div>
+
+    <!-- 概要・目的 -->
+    <div class="section">
+      <h2>P講師 契約解除フロー As-Is</h2>
+
+      <div class="note green">
+        <strong>目的</strong>: パートナー講師の契約解除（契約終了・契約満了）に関する、受付〜契約書対応〜社内アカウント / Notion 更新までの標準フローを整理する。
+      </div>
+
+      <h3>入口（トリガー）</h3>
+      <table>
+        <thead><tr><th>トリガー</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag blue">エージェントから</span></td><td>「契約終了希望」の連絡が来る</td></tr>
+          <tr><td><span class="tag green">講師本人から</span></td><td>「契約終了希望」の連絡が来る</td></tr>
+          <tr><td><span class="tag orange">PMG側から</span></td><td>契約解除を打診する（例: ほとんど稼働していない、連絡がつかない等）</td></tr>
+        </tbody>
+      </table>
+
+      <h3>最初に確認すること</h3>
+      <div class="note orange">
+        該当講師が<strong>エージェント経由で参画しているか / 直接契約か</strong>を確認する。
+        <ul style="font-size:.78rem;padding-left:1.2rem;margin:.3rem 0;">
+          <li><strong>エージェント経由</strong>: 契約書のやりとりは基本的にエージェント経由</li>
+          <li><strong>直接契約</strong>: PMG 側で契約書 / 書類対応が発生</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- 早見表 -->
+    <div class="section">
+      <h2>ケース別 早見表</h2>
+
+      <table>
+        <thead><tr><th>入口（誰から）</th><th>参画形態</th><th>まずやること</th><th>契約書/書類対応</th><th>その後</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="tag blue">エージェント</span></td>
+            <td>エージェント経由</td>
+            <td>解除希望日を確認</td>
+            <td>原則エージェント側で完結（PMG は確認中心）</td>
+            <td>共通フロー</td>
+          </tr>
+          <tr>
+            <td><span class="tag green">講師本人</span> / <span class="tag orange">PMG</span></td>
+            <td>エージェント経由</td>
+            <td>講師と解除意思・解除日を確定 → エージェントへ連絡</td>
+            <td>以降はエージェント側で手続き</td>
+            <td>共通フロー</td>
+          </tr>
+          <tr>
+            <td><span class="tag green">講師本人</span> / <span class="tag orange">PMG</span></td>
+            <td>直接契約</td>
+            <td>講師と解除日を確定（証跡を残す）</td>
+            <td>必要書類・データ削除依頼などをPMGで対応</td>
+            <td>共通フロー</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 全体フロー図 -->
+    <div class="section">
+      <h2>全体フロー</h2>
+
+      <div class="phase-flow">
+        <div class="phase-block blue">
+          <div class="phase-label">START</div>
+          <div class="phase-name">契約解除<br>トリガー発生</div>
+        </div>
+        <div class="phase-block orange">
+          <div class="phase-label">分岐</div>
+          <div class="phase-name">入口・参画形態<br>の確認</div>
+          <div class="phase-owner">PMG</div>
+        </div>
+        <div class="phase-block purple">
+          <div class="phase-label">A / B</div>
+          <div class="phase-name">ケース別<br>対応</div>
+          <div class="phase-owner">PMG / エージェント</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">共通</div>
+          <div class="phase-name">アカウント解除<br>Notion更新</div>
+          <div class="phase-owner">PMG → 管理部</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- フロー A -->
+    <div class="section">
+      <h2>フロー A: エージェントから契約終了依頼が来た場合</h2>
+
+      <table>
+        <thead><tr><th>#</th><th>ステップ</th><th>担当</th><th>アクション</th></tr></thead>
+        <tbody>
+          <tr><td>A1</td><td>解除希望日の確認</td><td>PMG</td><td>契約解除希望日（いつで解除か）を確認</td></tr>
+          <tr><td>A2</td><td>契約書の確認</td><td>エージェント</td><td>契約書のやりとりは基本的にエージェント経由のため、PMG 側の追加対応は原則なし</td></tr>
+          <tr><td>A3</td><td>共通フローへ</td><td>PMG</td><td>アカウント解除・Notion 更新へ進む</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- フロー B -->
+    <div class="section">
+      <h2>フロー B: 講師本人から依頼 / PMG から解除打診した場合</h2>
+
+      <h3>B-1: エージェント経由で参画している講師</h3>
+      <table>
+        <thead><tr><th>#</th><th>ステップ</th><th>担当</th><th>アクション</th></tr></thead>
+        <tbody>
+          <tr><td>B1-1</td><td>解除意思の確定</td><td>PMG + P講師</td><td>契約解除希望かどうかを講師本人とやり取りして確定</td></tr>
+          <tr><td>B1-2</td><td>エージェントへ連絡</td><td>PMG</td><td>エージェントへ連絡し、契約解除手続きに進んでもらう</td></tr>
+          <tr><td>B1-3</td><td>以降はフローAと同様</td><td>エージェント</td><td>エージェント側で手続き → 共通フローへ</td></tr>
+        </tbody>
+      </table>
+
+      <h3>B-2: 直接契約の講師</h3>
+      <table>
+        <thead><tr><th>#</th><th>ステップ</th><th>担当</th><th>アクション</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>B2-1</td><td>解除日の調整・確定</td><td>PMG + P講師</td><td>契約解除日（いつで解除か）を講師と調整し、確定する</td><td><strong>証跡を残す</strong></td></tr>
+          <tr><td>B2-2</td><td>解除理由の確認</td><td>PMG</td><td>必要に応じて解除理由を改めて確認</td><td></td></tr>
+          <tr><td>B2-3</td><td>データ削除依頼</td><td>PMG → P講師</td><td>ローカル環境に保存されている弊社関連の教材・データの削除を依頼</td><td></td></tr>
+          <tr><td>B2-4</td><td>共通フローへ</td><td>PMG</td><td>アカウント解除・Notion 更新へ進む</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 共通フロー -->
+    <div class="section">
+      <h2>共通フロー: アカウント解除・社内システム / Notion 更新</h2>
+
+      <div class="note">
+        契約形態（エージェント経由 / 直接）に関わらず、ここからは共通。
+      </div>
+
+      <h3>1) 管理部へアカウント解除依頼</h3>
+      <p style="font-size:.8rem;margin:.5rem 0;">契約解除の時期に合わせてアカウントの非稼働化 / 削除時期を決める。</p>
+
+      <table>
+        <thead><tr><th>条件</th><th>アカウント削除の目安</th></tr></thead>
+        <tbody>
+          <tr><td><strong>報酬支払いがある場合</strong></td><td>報酬支払いから<strong>1ヶ月後</strong>を目安に削除</td></tr>
+          <tr><td><strong>それ以外</strong></td><td>原則<strong>月末削除</strong>でOK</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note purple">
+        <strong>補足</strong>: Salesforce 側はアカウント削除を依頼すると、実際は「削除」ではなく<strong>非稼働化</strong>に変わる想定。追加アクションは原則不要。
+      </div>
+
+      <h3>2) Notion 上の更新</h3>
+      <table>
+        <thead><tr><th>対象ページ</th><th>アクション</th></tr></thead>
+        <tbody>
+          <tr><td><strong>個人ページ</strong></td><td>ステータスを<strong>「契約満了」</strong>に変更</td></tr>
+          <tr><td><strong>評価ページ</strong></td><td><strong>Archive のチェック</strong>を入れる</td></tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
   <!-- ─── SUB: 発注・請求 ─── -->
