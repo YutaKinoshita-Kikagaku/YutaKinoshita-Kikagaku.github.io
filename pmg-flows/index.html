@@ -278,11 +278,393 @@ tr:hover td { background: #f8fafc; }
 
   <!-- ─── SUB: 採用 ─── -->
   <div id="sub-partner-recruit" class="sub-content">
-    <div class="placeholder">
-      <div class="icon">&#128221;</div>
-      <div>P講師 採用フロー（流入→面接→契約）</div>
-      <div style="font-size:.75rem;margin-top:.3rem;">準備中 — 媒体別・人事部連携フローを整備予定</div>
+
+    <!-- ====== 本書の目的 ====== -->
+    <div class="section">
+      <h2>P講師 採用フロー</h2>
+
+      <div class="note green">
+        <strong>本書の目的</strong>
+        <ul style="font-size:.8rem;padding-left:1.2rem;margin:.4rem 0 0;">
+          <li>キカガクにおける業務委託講師の採用プロセスを把握する</li>
+          <li>採用基準の明確化を行い、採用後のミスマッチを減らす</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- ====== 前提：業務委託講師の位置付け ====== -->
+    <div class="section">
+      <h2>（前提）業務委託講師と社内講師の位置付け</h2>
+
+      <table>
+        <thead><tr><th></th><th>業務委託講師</th><th>社内講師</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>スコープ</strong></td>
+            <td>ADDIEモデルの <strong>Implement（実施）</strong> が中心</td>
+            <td>ADDIEモデル<strong>全体</strong>（設計・開発・実施・評価）</td>
+          </tr>
+          <tr>
+            <td><strong>業務内容</strong></td>
+            <td>社内講師が設計したカリキュラム・講義資料に基づく講義の遂行。安定したデリバリーを届ける</td>
+            <td>顧客折衝・研修設計と開発・登壇の実施・振り返りまでの一連の遂行</td>
+          </tr>
+          <tr>
+            <td><strong>備考</strong></td>
+            <td>一部、設計・開発に関わるP講師も存在するが、当初からその人財の獲得は想定していない（副産物的に生まれたもの）</td>
+            <td>現場経験の蓄積に伴い研修全体をデザインする存在となる</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        以降の内容は<strong>業務委託講師</strong>に限定した採用フローについて記載する。
+      </div>
+    </div>
+
+    <!-- ====== 前提：登壇コース ====== -->
+    <div class="section">
+      <h2>（前提）業務委託講師の登壇コース</h2>
+      <p style="font-size:.8rem;">
+        キカガクが提供する人材育成ロードマップから<strong>自身のバリューが活かせるコース</strong>を登壇してもらう形式としており、<strong>あえてコースの断定は事前にしていない</strong>。
+      </p>
+    </div>
+
+    <!-- ====== 採用の基本方針 ====== -->
+    <div class="section">
+      <h2>講師採用の基本方針</h2>
+
+      <p style="font-size:.8rem;margin-bottom:.8rem;">
+        講師に求められる能力には講師力・技術力・対人コミュニケーション能力などが含まれるが、これらを全て兼ね備えた人材は市場で非常に貴重。そのため、以下の<strong>優先順位</strong>で採用基準を設定している。
+      </p>
+
+      <table>
+        <thead><tr><th>重要度</th><th>観点</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--red)">最重要</strong></td>
+            <td><strong>教育・講師としてのマインドセット</strong></td>
+            <td style="font-size:.75rem;">
+              ・教育への熱意・意義を理解しているか<br>
+              ・キカガクの方針に賛同して業務を推進できるか<br>
+              ・継続的に学び、成長し続ける姿勢があるか
+            </td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--orange)">重要</strong></td>
+            <td><strong>対人コミュニケーション・人柄</strong></td>
+            <td style="font-size:.75rem;">
+              ・受講者と良好な関係を築ける柔軟性・人間性<br>
+              ・わかりやすく伝えるための言語化能力<br>
+              ・受講者に寄り添い、適切な対応ができるか<br>
+              ・インシデントを発生させにくいか<br>
+              ・キカガクの組織文化と合うか
+            </td>
+          </tr>
+          <tr>
+            <td style="color:var(--muted)">あれば望ましい</td>
+            <td><strong>講師経験</strong></td>
+            <td style="font-size:.75rem;">
+              ・過去の登壇経験（企業研修・教育機関など）<br>
+              ・ウェビナーの登壇経験
+            </td>
+          </tr>
+          <tr>
+            <td style="color:var(--muted)">あれば望ましい</td>
+            <td><strong>技術的な知識</strong></td>
+            <td style="font-size:.75rem;">
+              ・講義内容に関する十分な理解<br>
+              ・最新の技術動向をキャッチアップする能力
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note orange">
+        <strong>なぜマインドセット最重要か？</strong><br>
+        <span style="font-size:.78rem;">
+          技術スキルや講師スキルは模擬講義・自主学習・OJTで育成可能だが、<strong>教育に対するマインドセットは後天的に伸ばすことが難しい</strong>。
+          教育への熱量が運営と乖離すると、到達期待値の未達・受講者対応の不適切さ・業務への消極性・模擬講義の長期化など弊害が発生する。
+          また、インシデントリスクの低減には<strong>そもそも問題を起こしにくい人を見抜くこと</strong>が最も効果的であり、人柄もマインドセットと同列で重要視している。
+        </span>
+      </div>
+    </div>
+
+    <!-- ====== 全体フロー ====== -->
+    <div class="section">
+      <h2>採用フロー全体像</h2>
+
+      <div class="phase-flow">
+        <div class="phase-block purple">
+          <div class="phase-label">非同期</div>
+          <div class="phase-name">流入</div>
+          <div class="phase-owner">エージェント / 媒体</div>
+        </div>
+        <div class="phase-block purple">
+          <div class="phase-label">非同期</div>
+          <div class="phase-name">書類選考</div>
+          <div class="phase-owner">人事部</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">同期</div>
+          <div class="phase-name">一次選考</div>
+          <div class="phase-owner">養成チームメンバー</div>
+          <div class="phase-time">30-45分</div>
+        </div>
+        <div class="phase-block blue">
+          <div class="phase-label">同期</div>
+          <div class="phase-name">最終選考</div>
+          <div class="phase-owner">上長</div>
+          <div class="phase-time">30-45分</div>
+        </div>
+        <div class="phase-block orange">
+          <div class="phase-label">契約</div>
+          <div class="phase-name">契約締結</div>
+          <div class="phase-owner">PMG + 人材開発</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">契約後</div>
+          <div class="phase-name">オリエンテーション</div>
+          <div class="phase-owner">養成チームメンバー</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== 流入経路 ====== -->
+    <div class="section">
+      <h2>流入経路</h2>
+
+      <table>
+        <thead><tr><th>#</th><th>経路</th><th>特徴</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong>エージェント経由</strong></td>
+            <td>スキル・資格がある程度担保された候補者が紹介される。既存フローが確立されており、現在の主要流入経路</td>
+            <td>紹介手数料が発生</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong>Wantedly 等（求人媒体）</strong></td>
+            <td>自己応募型。応募数は限定的</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong>コミュニティ / 卒業生</strong></td>
+            <td>将来候補だがまだ経路として確立していない。P講師まで進む人は少数</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        エージェント・媒体には事前にキカガクの期待値を伝達・明記し、選考に入る前に候補者の期待値がズレないよう対策している。
+      </div>
+    </div>
+
+    <!-- ====== 書類選考 ====== -->
+    <div class="section">
+      <h2>書類選考（非同期）</h2>
+
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>担当者</strong></td><td>人事部（採用担当）</td></tr>
+          <tr><td><strong>目的</strong></td><td>最低限のマッチング相違がないかの確認</td></tr>
+          <tr><td><strong>実施形態</strong></td><td>非同期のテキスト確認のみ</td></tr>
+          <tr><td><strong>確認内容</strong></td><td>年齢 / 実務経験・技術スキル</td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:.8rem;margin:.6rem 0;">基準さえ決定されれば誰でも対応可能なため、人事に一任している。</p>
+
+      <h3>判断軸 1: 年齢</h3>
+      <p style="font-size:.8rem;">
+        想定ペルソナを <strong>20代後半〜40代</strong> に設定。理由は以下の3点:
+      </p>
+      <ul style="font-size:.78rem;padding-left:1.5rem;margin:.3rem 0;">
+        <li><strong>体力面</strong> — 1日〜3日の終日研修に登壇するための体力が必要</li>
+        <li><strong>インプットの柔軟性</strong> — カリキュラムへの登壇のため、トレンド情報や知識へのキャッチアップ力が必要。SNS・動画メディア・生成AIなど様々な方法でのキャッチアップ力</li>
+        <li><strong>社会人としての振る舞い</strong> — 若すぎると実務経験の不足から権威性やスキル証明が不十分なケースがある</li>
+      </ul>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:.3rem;">
+        ※ 50代超でも上記を有する方、20代前半でも経験豊富な方は存在するため、あくまで目安。年齢軸は経歴と並行して判断する。
+      </p>
+
+      <h3>判断軸 2: 実務経験・技術スキル</h3>
+      <p style="font-size:.8rem;">
+        「なにかを経験したことがあるか」よりも<strong>「全く経験がないか」</strong>をスクリーニングするイメージ。
+      </p>
+      <ul style="font-size:.78rem;padding-left:1.5rem;margin:.3rem 0;">
+        <li>例: PCをあまり触らない職種からの流入</li>
+        <li>例: データ分析領域での登壇想定だが、Rのみ経験でPython中心のキカガク講座が難しい</li>
+      </ul>
+      <p style="font-size:.75rem;color:var(--muted);">後天的に学習可能な範疇であれば通過。明らかに難しい場合のみスクリーニング対象。</p>
+    </div>
+
+    <!-- ====== 一次選考 ====== -->
+    <div class="section">
+      <h2>一次選考（同期）</h2>
+
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>担当者</strong></td><td>業務委託講師養成チームのメンバー</td></tr>
+          <tr><td><strong>目的</strong></td><td>パーソナリティ判断 / 稼働要件の双方合意 / 候補者の不明点の洗い出し</td></tr>
+          <tr><td><strong>面接時間</strong></td><td>30〜45分（＋ 評価時間15分）</td></tr>
+          <tr><td><strong>実施形態</strong></td><td>オンライン（Zoom / Google Meet）</td></tr>
+        </tbody>
+      </table>
+
+      <h3>実施内容</h3>
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>双方自己紹介・キカガク紹介</strong></td>
+            <td>アイスブレイクを兼ね、話しやすい雰囲気を作る</td>
+          </tr>
+          <tr>
+            <td><strong>経歴詳細確認</strong></td>
+            <td>職務経歴書だけでは判断できない要素を深堀り。「どういうモチベーションでその仕事を？」「プロジェクトで何を学んだか？」「問題発生時の対処法は？」など。経歴からコンピテンシー（将来取るであろう行動）を予測し、「成果志向」「戦略志向」「変革志向」のどこを重視するかを判断</td>
+          </tr>
+          <tr>
+            <td><strong>志望動機の確認</strong></td>
+            <td>案件・報酬だけでなく、<strong>同じ教育熱を持っているか</strong>を重視。会社ミッションに共感できる人財かを判断</td>
+          </tr>
+          <tr>
+            <td><strong>稼働における質疑応答</strong></td>
+            <td>事前に資料を読み込んでいるか、キカガクの理解度、稼働前のイメージが付いているかを確認</td>
+          </tr>
+          <tr>
+            <td><strong>稼働要件整理と合意</strong></td>
+            <td>家庭都合・居住地都合での対面可否、報酬面の合意など。双方の期待値を揃える</td>
+          </tr>
+          <tr>
+            <td><strong>講師適性の質問</strong></td>
+            <td>
+              目的は2つ:<br>
+              <strong>① 発散的な質問への構造的回答力</strong> — 答えのない問いに対し、自身の考えを分解して伝えられるか<br>
+              <span style="font-size:.72rem;color:var(--muted)">例:「今まで受けた研修で尊敬できる講師は？何がよかった？」</span><br>
+              <strong>② 教育へのソースオブエナジー</strong> — なぜ教育に興味を持ったか、その源泉が人生のどこにあるか<br>
+              <span style="font-size:.72rem;color:var(--muted)">その他: 過去の講師経験（形態・ツール・人数・内容）、受講者のゴール設定、状況別の進行方法</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>通過者への宿題</h3>
+      <div class="note">
+        <strong>宿題:</strong> 提供講座一覧資料からバリューを発揮できる研修を <strong>3つ以上</strong> ピックアップし、最終選考にて画面共有で伝達する。<br>
+        <span style="font-size:.75rem;color:var(--muted);">※ 登壇コースを見たいという目的より、<strong>依頼に対してどの程度詳細に準備してくれるか</strong>を判断する意図が大きい。</span>
+      </div>
+    </div>
+
+    <!-- ====== 最終選考 ====== -->
+    <div class="section">
+      <h2>最終選考（同期）</h2>
+
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>担当者</strong></td><td>一次選考担当者の上長以上のメンバー</td></tr>
+          <tr><td><strong>目的</strong></td><td>パーソナリティ再判断 / 技術スキル要件チェック / （即合格の場合）受け入れ開始</td></tr>
+          <tr><td><strong>面接時間</strong></td><td>30〜45分（＋ 評価時間15分）</td></tr>
+          <tr><td><strong>実施形態</strong></td><td>オンライン（Zoom / Google Meet）</td></tr>
+        </tbody>
+      </table>
+
+      <h3>実施内容</h3>
+      <table>
+        <thead><tr><th>項目</th><th>内容</th><th>一次選考との違い</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>双方自己紹介</strong></td>
+            <td>アイスブレイクを兼ねた自己紹介</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>経歴詳細確認</strong></td>
+            <td>「どうしてそのフレームワークを使用したのか」「具体的にどのような設計で成果物を作ったのか」など</td>
+            <td><strong>スキル軸</strong>の深堀りが中心</td>
+          </tr>
+          <tr>
+            <td><strong>志望動機の再確認</strong></td>
+            <td>教育熱・ミッション共感の再スクリーニング</td>
+            <td>上長目線から再評価</td>
+          </tr>
+          <tr>
+            <td><strong>宿題の確認</strong></td>
+            <td>登壇可能コースの絞り込み。依頼に対して真摯に対応してくれるかの確認</td>
+            <td>一次で提示した宿題の回収</td>
+          </tr>
+          <tr>
+            <td><strong>質疑応答</strong></td>
+            <td>一次選考から時間が経っているため、新たに生じた質問を確認</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>講師適性の質問</strong></td>
+            <td>一次の面接ログを元にさらに深堀り。キカガクに期待していることの確認</td>
+            <td>一次ログベースの追加深堀り</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note green">
+        最終選考の意思決定が契約に直結するため、一次選考担当者よりも上位の人間が対応し、総合的な判断で最終決定を行う。
+      </div>
+    </div>
+
+    <!-- ====== 契約締結後 ====== -->
+    <div class="section">
+      <h2>契約締結後のオリエンテーション</h2>
+
+      <table>
+        <thead><tr><th>項目</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>担当者</strong></td><td>業務委託講師養成チームのメンバー</td></tr>
+          <tr><td><strong>内容</strong></td><td>業務開始前の必要最低限の準備の実施</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note green">
+        <strong>オリエンテーションの目的</strong>
+        <ul style="font-size:.8rem;padding-left:1.2rem;margin:.4rem 0 0;">
+          <li>契約後の顔合わせと親睦を深める</li>
+          <li>業務に必要な必要最低限の情報を連携する</li>
+          <li>キカガクでの業務遂行におけるルールを伝達し、規定範囲を明確にする</li>
+        </ul>
+      </div>
+
+      <h3>オンボーディングで意識していること</h3>
+      <ul style="font-size:.78rem;padding-left:1.5rem;margin:.5rem 0;">
+        <li>「それは聞いていなかった」を避けるため、業務で期待する項目や依頼内容は可能な限り全て明記</li>
+        <li>準備に必要なToDoチェックリストを用意し、やるべきことを列挙</li>
+        <li>事前にマストで把握すべき内容と、OJTからのインプットで問題ない事項を切り分け、最低限の情報連携に留める</li>
+      </ul>
+
+      <div class="note">
+        <strong>契約締結後の育成フロー:</strong> オリエンテーション → サポーターテスト → 模擬講義（×4回）→ 登壇テスト → 登壇。詳細は「オンボーディング」以降のタブを参照。
+      </div>
+    </div>
+
+    <!-- ====== 主要KPI ====== -->
+    <div class="section">
+      <h2>主要KPI（実績値）</h2>
+
+      <table>
+        <thead><tr><th>指標</th><th>数値</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>応募→内定 到達率</td><td><strong>約15%</strong></td><td>書類〜最終選考を経て</td></tr>
+          <tr><td>内定→登壇 定着率</td><td><strong>約80-90%</strong>（肌感）</td><td>別PJで正確に算出中</td></tr>
+          <tr><td>既存P講師数</td><td><strong>約50-60名</strong></td><td>全員を活用できている状態ではない</td></tr>
+          <tr><td>契約→登壇 の期間</td><td><strong>約4-5週間</strong></td><td>オンボ〜登壇テスト合格まで</td></tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
   <!-- ─── SUB: オンボーディング ─── -->
@@ -1045,19 +1427,11 @@ tr:hover td { background: #f8fafc; }
 <div id="main-employee" class="main-content">
 
   <div class="sub-tabs">
-    <button class="sub-tab" onclick="switchSub('employee','recruit')">採用</button>
     <button class="sub-tab active" onclick="switchSub('employee','onboard')">オンボーディング</button>
+    <button class="sub-tab" onclick="switchSub('employee','training')">育成期間</button>
     <button class="sub-tab" onclick="switchSub('employee','mock')">模擬講義</button>
     <button class="sub-tab" onclick="switchSub('employee','test')">登壇テスト</button>
-  </div>
-
-  <!-- ─── SUB: 採用 ─── -->
-  <div id="sub-employee-recruit" class="sub-content">
-    <div class="placeholder">
-      <div class="icon">&#128221;</div>
-      <div>正社員講師 採用フロー</div>
-      <div style="font-size:.75rem;margin-top:.3rem;">準備中 — 人事部・人材開発との連携フローを整備予定</div>
-    </div>
+    <button class="sub-tab" onclick="switchSub('employee','pmg')">PMG配属期間</button>
   </div>
 
   <!-- ─── SUB: オンボーディング ─── -->
@@ -1166,6 +1540,15 @@ tr:hover td { background: #f8fafc; }
     </div>
   </div>
 
+  <!-- ─── SUB: 育成期間 ─── -->
+  <div id="sub-employee-training" class="sub-content">
+    <div class="placeholder">
+      <div class="icon">&#128218;</div>
+      <div>正社員 育成期間フロー</div>
+      <div style="font-size:.75rem;margin-top:.3rem;">準備中 — 入社後の知識インプット・講師力育成の並行プロセスを整備予定</div>
+    </div>
+  </div>
+
   <!-- ─── SUB: 模擬講義 ─── -->
   <div id="sub-employee-mock" class="sub-content">
     <div class="placeholder">
@@ -1181,6 +1564,15 @@ tr:hover td { background: #f8fafc; }
       <div class="icon">&#128203;</div>
       <div>正社員 登壇テストフロー</div>
       <div style="font-size:.75rem;margin-top:.3rem;">準備中 — 3名体制（エルダー+SDG MGR+PMG）での登壇テストを整備予定</div>
+    </div>
+  </div>
+
+  <!-- ─── SUB: PMG配属期間 ─── -->
+  <div id="sub-employee-pmg" class="sub-content">
+    <div class="placeholder">
+      <div class="icon">&#127919;</div>
+      <div>PMG配属期間（TTT含む）</div>
+      <div style="font-size:.75rem;margin-top:.3rem;">準備中 — PMG配属中の業務・TTT受講・SDG移行判定フローを整備予定</div>
     </div>
   </div>
 
