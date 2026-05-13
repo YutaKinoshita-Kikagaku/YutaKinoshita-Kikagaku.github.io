@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMG 部門定例資料</title>
+<style>
+:root {
+  --primary-dark: #0D2E6B;
+  --primary-mid: #2B5EAE;
+  --primary-light: #6B9DD6;
+  --text: #152238;
+  --text-light: #5F7389;
+  --gray-dark: #2C3E56;
+  --gray-light: #94A3B8;
+  --accent-orange: #E86B0A;
+  --danger-red: #990000;
+  --border: #e2e8f0;
+  --bg: #f5f7fa;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-mid) 100%);
+  color: #fff;
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+}
+
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  margin-bottom: .4rem;
+}
+
+.header .subtitle {
+  font-size: .85rem;
+  color: rgba(255, 255, 255, .75);
+  font-weight: 400;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  color: rgba(255, 255, 255, .7);
+  text-decoration: none;
+  font-size: .78rem;
+  margin-bottom: 1rem;
+  transition: color .2s;
+}
+
+.back-link:hover {
+  color: #fff;
+}
+
+/* ── Main ── */
+.main {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+/* ── Year Section ── */
+.year-section {
+  margin-bottom: 2.5rem;
+}
+
+.year-label {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--primary-mid);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: .8rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--primary-light);
+  display: inline-block;
+}
+
+/* ── Meeting Card ── */
+.meeting-list {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+.meeting-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  transition: all .2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+}
+
+.meeting-card:hover {
+  box-shadow: 0 4px 16px rgba(13, 46, 107, .1);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+}
+
+.meeting-date {
+  flex-shrink: 0;
+  width: 64px;
+  text-align: center;
+}
+
+.meeting-date .month {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  line-height: 1.2;
+}
+
+.meeting-date .day {
+  display: block;
+  font-size: .7rem;
+  color: var(--text-light);
+  margin-top: .15rem;
+}
+
+.meeting-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.meeting-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.meeting-title {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: .4rem;
+}
+
+.meeting-tags {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  display: inline-block;
+  padding: .15rem .55rem;
+  border-radius: 4px;
+  font-size: .65rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.tag.blue {
+  background: rgba(43, 94, 174, .1);
+  color: var(--primary-mid);
+}
+
+.tag.orange {
+  background: rgba(232, 107, 10, .1);
+  color: var(--accent-orange);
+}
+
+.tag.dark {
+  background: rgba(44, 62, 86, .1);
+  color: var(--gray-dark);
+}
+
+.tag.red {
+  background: rgba(153, 0, 0, .08);
+  color: var(--danger-red);
+}
+
+.meeting-arrow {
+  flex-shrink: 0;
+  color: var(--gray-light);
+  font-size: 1.1rem;
+  transition: transform .2s;
+}
+
+.meeting-card:hover .meeting-arrow {
+  transform: translateX(3px);
+  color: var(--primary-mid);
+}
+
+/* ── Empty state ── */
+.empty-note {
+  text-align: center;
+  color: var(--text-light);
+  font-size: .82rem;
+  padding: 2rem 0;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: var(--gray-light);
+  font-size: .72rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .header { padding: 2rem 1rem 1.5rem; }
+  .header h1 { font-size: 1.3rem; }
+  .main { padding: 1.5rem 1rem 2rem; }
+  .meeting-card { padding: 1rem 1.1rem; gap: .8rem; }
+  .meeting-date { width: 50px; }
+  .meeting-date .month { font-size: 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-inner">
+    <a href="../" class="back-link">&#8592; PMG Design Portal</a>
+    <h1>PMG 部門定例資料</h1>
+    <div class="subtitle">毎月第一水曜日 実施</div>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+  <!-- 2026 -->
+  <section class="year-section">
+    <div class="year-label">2026</div>
+    <div class="meeting-list">
+
+      <a href="2026/05.html" class="meeting-card">
+        <div class="meeting-date">
+          <span class="month">5月</span>
+          <span class="day">2026/05/13</span>
+        </div>
+        <div class="meeting-divider"></div>
+        <div class="meeting-body">
+          <div class="meeting-title">2026年5月 部門定例</div>
+          <div class="meeting-tags">
+            <span class="tag blue">組織再編</span>
+            <span class="tag orange">育成T始動</span>
+            <span class="tag dark">OKR進捗</span>
+          </div>
+        </div>
+        <div class="meeting-arrow">&#8250;</div>
+      </a>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  &copy; 2026 Kikagaku Inc. &#8212; PMG Partner Management Group
+</div>
+
+</body>
+</html>
