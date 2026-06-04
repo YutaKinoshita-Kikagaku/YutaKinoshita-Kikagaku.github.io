@@ -97,7 +97,10 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,.07);
   border: 1px solid var(--border);
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+.section-lead {
+  border-left: 4px solid var(--blue);
 }
 .section h2 {
   font-size: 1rem;
@@ -107,8 +110,10 @@ body {
 }
 .section h3 {
   font-size: .88rem;
-  margin: 1rem 0 .5rem;
+  margin: 1.2rem 0 .5rem;
   color: var(--blue);
+  padding-left: .6rem;
+  border-left: 3px solid #bfdbfe;
 }
 .section h4 {
   font-size: .82rem;
@@ -194,6 +199,7 @@ th {
   white-space: nowrap;
 }
 td { background: var(--card); }
+tbody tr:nth-child(even) td { background: #f8fafc; }
 tr:hover td { background: #f8fafc; }
 
 /* ── Note / Alert ── */
@@ -234,6 +240,22 @@ tr:hover td { background: #f8fafc; }
 .tag.purple { background: #ede9fe; color: #6d28d9; }
 .tag.gray { background: #e5e7eb; color: #374151; }
 
+/* ── Phase Badge ── */
+.phase-badge {
+  display: inline-block;
+  font-size: .65rem;
+  font-weight: 700;
+  padding: .15rem .5rem;
+  border-radius: 4px;
+  margin-right: .4rem;
+  vertical-align: middle;
+}
+.phase-badge.blue { background: #dbeafe; color: #1d4ed8; }
+.phase-badge.green { background: #d1fae5; color: #047857; }
+.phase-badge.orange { background: #fed7aa; color: #92400e; }
+.phase-badge.red { background: #fecaca; color: #991b1b; }
+.phase-badge.purple { background: #ede9fe; color: #6d28d9; }
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .main-tabs { flex-wrap: wrap; }
@@ -252,7 +274,7 @@ tr:hover td { background: #f8fafc; }
 </div>
 <div class="header">
   <h1><span class="logo">KIKAGAKU</span> パートナーマネジメント企画</h1>
-  <div class="sub">業務フロー As-Is ｜ 最終更新: 2026-03-09</div>
+  <div class="sub">業務フロー As-Is ｜ 最終更新: 2026-03-16</div>
 </div>
 
 <!-- ═══════════ MAIN TABS ═══════════ -->
@@ -280,7 +302,7 @@ tr:hover td { background: #f8fafc; }
   <div id="sub-partner-recruit" class="sub-content">
 
     <!-- ====== 本書の目的 ====== -->
-    <div class="section">
+    <div class="section section-lead">
       <h2>P講師 採用フロー</h2>
 
       <div class="note green">
@@ -671,7 +693,7 @@ tr:hover td { background: #f8fafc; }
   <div id="sub-partner-onboard" class="sub-content active">
 
     <!-- ====== P講師オンボーディング ====== -->
-    <div class="section">
+    <div class="section section-lead">
       <h2>P講師 オンボーディング As-Is</h2>
 
       <h3>実施背景</h3>
@@ -736,7 +758,7 @@ tr:hover td { background: #f8fafc; }
 
     <!-- ====== Phase 0: PMG側事前準備 ====== -->
     <div class="section">
-      <h2>Phase 0: PMG側 事前準備チェックリスト</h2>
+      <h2><span class="phase-badge purple">Phase 0</span>PMG側 事前準備チェックリスト</h2>
 
       <div class="note">
         オンボーディング開始前に PMG 側で下記を全て準備してから実施する。
@@ -758,7 +780,7 @@ tr:hover td { background: #f8fafc; }
 
     <!-- ====== Phase 1: 連絡・日程調整 ====== -->
     <div class="section">
-      <h2>Phase 1: P講師への連絡・日程調整</h2>
+      <h2><span class="phase-badge blue">Phase 1</span>P講師への連絡・日程調整</h2>
 
       <h3>初回投稿（契約・事前対応完了の確認後）</h3>
       <div style="background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:1rem;font-size:.78rem;margin:.8rem 0;white-space:pre-line;">契約からオンボ前のご対応が完了されていることが確認とれました。
@@ -793,7 +815,7 @@ tr:hover td { background: #f8fafc; }
 
     <!-- ====== Phase 3: 当日フロー ====== -->
     <div class="section">
-      <h2>Phase 3: オンボーディング当日の流れ（約1時間）</h2>
+      <h2><span class="phase-badge orange">Phase 3</span>オンボーディング当日の流れ（約1時間）</h2>
 
       <div class="note">
         レコーディングは<strong>配布可</strong>。事前にP講師が資料確認済みの場合、説明は割愛可。
@@ -920,7 +942,7 @@ tr:hover td { background: #f8fafc; }
 
     <!-- ====== Phase 4-5: ToDo ====== -->
     <div class="section">
-      <h2>Phase 4-5: オンボ後のToDo</h2>
+      <h2><span class="phase-badge green">Phase 4-5</span>オンボ後のToDo</h2>
 
       <table>
         <thead><tr><th>タイミング</th><th>ToDo</th><th>備考</th></tr></thead>
@@ -939,7 +961,7 @@ tr:hover td { background: #f8fafc; }
   <!-- ─── SUB: 模擬講義 ─── -->
   <div id="sub-partner-mock" class="sub-content">
 
-    <div class="section">
+    <div class="section section-lead">
       <h2>模擬講義 As-Is</h2>
 
       <div class="phase-flow">
@@ -1032,7 +1054,7 @@ tr:hover td { background: #f8fafc; }
   <!-- ─── SUB: 模擬講義（外注） ─── -->
   <div id="sub-partner-mock-outsource" class="sub-content">
 
-    <div class="section">
+    <div class="section section-lead">
       <h2>模擬講義（外注メンター使用時）As-Is</h2>
 
       <div class="note purple">
@@ -1151,7 +1173,7 @@ tr:hover td { background: #f8fafc; }
   <!-- ─── SUB: 登壇テスト ─── -->
   <div id="sub-partner-test" class="sub-content">
 
-    <div class="section">
+    <div class="section section-lead">
       <h2>登壇テスト As-Is</h2>
 
       <div class="phase-flow">
@@ -1249,7 +1271,7 @@ tr:hover td { background: #f8fafc; }
   <div id="sub-partner-termination" class="sub-content">
 
     <!-- 概要・目的 -->
-    <div class="section">
+    <div class="section section-lead">
       <h2>P講師 契約解除フロー As-Is</h2>
 
       <div class="note green">
@@ -1429,15 +1451,13 @@ tr:hover td { background: #f8fafc; }
   <div class="sub-tabs">
     <button class="sub-tab active" onclick="switchSub('employee','onboard')">オンボーディング</button>
     <button class="sub-tab" onclick="switchSub('employee','training')">育成期間</button>
-    <button class="sub-tab" onclick="switchSub('employee','mock')">模擬講義</button>
-    <button class="sub-tab" onclick="switchSub('employee','test')">登壇テスト</button>
     <button class="sub-tab" onclick="switchSub('employee','pmg')">PMG配属期間</button>
   </div>
 
   <!-- ─── SUB: オンボーディング ─── -->
   <div id="sub-employee-onboard" class="sub-content active">
 
-    <div class="section">
+    <div class="section section-lead">
       <h2>正社員講師 オンボーディング As-Is</h2>
 
       <div class="phase-flow">
@@ -1542,37 +1562,254 @@ tr:hover td { background: #f8fafc; }
 
   <!-- ─── SUB: 育成期間 ─── -->
   <div id="sub-employee-training" class="sub-content">
-    <div class="placeholder">
-      <div class="icon">&#128218;</div>
-      <div>正社員 育成期間フロー</div>
-      <div style="font-size:.75rem;margin-top:.3rem;">準備中 — 入社後の知識インプット・講師力育成の並行プロセスを整備予定</div>
-    </div>
-  </div>
 
-  <!-- ─── SUB: 模擬講義 ─── -->
-  <div id="sub-employee-mock" class="sub-content">
-    <div class="placeholder">
-      <div class="icon">&#127891;</div>
-      <div>正社員 模擬講義フロー</div>
-      <div style="font-size:.75rem;margin-top:.3rem;">準備中 — メンター+エルダー体制での模擬講義サイクルを整備予定</div>
-    </div>
-  </div>
+    <!-- ====== 概要 ====== -->
+    <div class="section section-lead">
+      <h2>正社員講師 育成期間 As-Is</h2>
 
-  <!-- ─── SUB: 登壇テスト ─── -->
-  <div id="sub-employee-test" class="sub-content">
-    <div class="placeholder">
-      <div class="icon">&#128203;</div>
-      <div>正社員 登壇テストフロー</div>
-      <div style="font-size:.75rem;margin-top:.3rem;">準備中 — 3名体制（エルダー+SDG MGR+PMG）での登壇テストを整備予定</div>
+      <div class="note">
+        部門専門オンボーディング（Phase B）完了後、模擬講義サイクルと登壇テストを経て登壇に至るまでの育成フロー。<br>
+        <strong>管轄: SDG + メンター/エルダー</strong>（PMGは模擬講義・登壇テストに関与）
+      </div>
+
+      <h3>全体フロー</h3>
+      <div class="phase-flow">
+        <div class="phase-block blue">
+          <div class="phase-label">Phase B</div>
+          <div class="phase-name">部門専門オンボ</div>
+          <div class="phase-owner">SDG + エルダー</div>
+          <div class="phase-time">約2ヶ月</div>
+        </div>
+        <div class="phase-block green">
+          <div class="phase-label">Phase C</div>
+          <div class="phase-name">模擬講義<br>サイクル</div>
+          <div class="phase-owner">新人 + エルダー</div>
+          <div class="phase-time">週2〜3回</div>
+        </div>
+        <div class="phase-block red">
+          <div class="phase-label">Phase D</div>
+          <div class="phase-name">登壇テスト</div>
+          <div class="phase-owner">3名体制</div>
+          <div class="phase-time">約1時間</div>
+        </div>
+        <div class="phase-block orange">
+          <div class="phase-label">Phase E</div>
+          <div class="phase-name">合格後<br>→初回登壇</div>
+          <div class="phase-owner">アサインT + SDG</div>
+        </div>
+      </div>
+
+      <div class="note orange">
+        正社員の多くは ML/DL 初学者 or 講師未経験 → <strong>知識インプットと講師力育成を同時並行</strong>で進める。<br>
+        育成体制は<strong>メンター + エルダーの2名体制</strong>。
+      </div>
     </div>
+
+    <!-- ====== 育成体制 ====== -->
+    <div class="section">
+      <h2>育成体制（メンター / エルダー）</h2>
+
+      <table>
+        <thead><tr><th></th><th>メンター</th><th>エルダー</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>役割</strong></td>
+            <td>マインドセット・キャリア支援。不安の受け皿・心理的安全性の確保</td>
+            <td>技術・講師スキル指導。模擬講義FB・登壇テスト採点の中心的評価者</td>
+          </tr>
+          <tr>
+            <td><strong>Phase B での関与</strong></td>
+            <td>全社オンボ側の補助（引き続き）、初期の講師力フォロー、模擬講義への参加（主に1ヶ月目）</td>
+            <td>技術理解の深堀り、講師力の本格的な伴走</td>
+          </tr>
+          <tr>
+            <td><strong>Phase C での関与</strong></td>
+            <td>（エルダーの補助）</td>
+            <td>模擬講義の採点・FB、登壇テスト水準の判断</td>
+          </tr>
+          <tr>
+            <td><strong>Phase D での関与</strong></td>
+            <td>—</td>
+            <td>登壇テストの全体進行 + 評価</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ====== Phase B: 部門オンボ ====== -->
+    <div class="section">
+      <h2><span class="phase-badge blue">Phase B</span>部門専門オンボーディング（約2ヶ月）</h2>
+
+      <table>
+        <thead><tr><th>#</th><th>ステップ</th><th>担当者</th><th>アクション</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>B1</td><td>担当コース内容理解</td><td>新人（自習）</td><td>講義資料の通読・技術インプット</td><td>エルダーが技術理解をサポート</td></tr>
+          <tr><td>B2</td><td>模擬講義マスター動画視聴</td><td>新人（自習）</td><td>ベテラン講師の登壇動画を視聴</td><td>Google Drive に格納</td></tr>
+          <tr><td>B3</td><td>自己紹介スライド作成</td><td>新人</td><td>登壇用自己紹介スライドの準備</td><td>Google Slides</td></tr>
+          <tr><td>B4</td><td>講義準備・自主練習</td><td>新人</td><td>手書きパート・実装パートの反復練習</td><td>エルダーが適宜FBを提供</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ====== メンタリング・日常育成活動 ====== -->
+    <div class="section">
+      <h2>メンタリング・日常育成活動（Phase B〜D を通じて継続）</h2>
+
+      <div class="note">
+        模擬講義サイクル（Phase C）や登壇テスト（Phase D）と<strong>並行して</strong>、以下のメンタリング・日常育成活動が継続的に行われる。
+      </div>
+
+      <table>
+        <thead><tr><th>活動</th><th>担当</th><th>頻度</th><th>内容</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>日報確認</strong></td>
+            <td>メンター / エルダー / 人材開発</td>
+            <td>日次</td>
+            <td>新人の日報を確認し、学習進捗・課題・メンタル状態を把握</td>
+          </tr>
+          <tr>
+            <td><strong>朝会への参加</strong></td>
+            <td>メンター / エルダー / (人材開発)</td>
+            <td>日次</td>
+            <td>チーム朝会で新人の状況を共有・フォロー</td>
+          </tr>
+          <tr>
+            <td><strong>メンタリング</strong></td>
+            <td>メンター / エルダー</td>
+            <td>週4〜5日</td>
+            <td>メンター・エルダーが日程を調整しながら実施。不安の受け皿・キャリア支援に加え、技術・講師力に関する質問対応も同期的にこの時間内で行う</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note purple">
+        <strong>ポイント:</strong> メンタリングは模擬講義の「採点・FB」とは別の活動。メンター・エルダーが日程を調整し、週4〜5日のメンタリング内でマインドセット支援・技術質問対応を同期的に実施する。日報・朝会・メンタリングは Phase A（全社オンボ）から始まり、登壇テスト合格まで継続する。
+      </div>
+    </div>
+
+    <!-- ====== Phase C: 模擬講義 ====== -->
+    <div class="section">
+      <h2><span class="phase-badge green">Phase C</span>模擬講義サイクル</h2>
+
+      <div class="note green">
+        <strong>模擬講義で意識する3原則</strong>
+        <ol style="font-size:.78rem;padding-left:1.5rem;margin:.4rem 0 0;">
+          <li>参加者は本当の受講生であり、本番の講義を行っている</li>
+          <li>受講生を活躍に繋げるために講義を行っている</li>
+          <li>失敗は悪くない、挑戦なくして成長はない</li>
+        </ol>
+      </div>
+
+      <table>
+        <thead><tr><th>#</th><th>ステップ</th><th>担当者</th><th>アクション</th><th>ツール</th></tr></thead>
+        <tbody>
+          <tr><td>C1</td><td>セクション指定</td><td>メンター/エルダー</td><td>手書きパート・実装パートの講義箇所を指定</td><td>Slack</td></tr>
+          <tr><td>C2</td><td>Zoom予約</td><td>新人</td><td>模擬講義用Zoomリンクの予約</td><td>Google Calendar（Zoom No.26/27）</td></tr>
+          <tr><td>C3</td><td>採点者への事前連絡</td><td>新人</td><td>講義資料リンク・チェックシートリンク・見てほしいポイント3つを共有</td><td>Slack（#team-ed-新人情報共有）</td></tr>
+          <tr><td>C4</td><td>模擬講義実施</td><td>新人（講義）+ エルダー（採点）</td><td>手書き15分 + まとめ + Q&A + 実装15分 + まとめ + Q&A</td><td>Zoom（録画必須）</td></tr>
+          <tr><td>C5</td><td>フィードバック</td><td>メンター/エルダー</td><td>パフォーマンスチェックシートに基づくFB</td><td>Google スプレッドシート</td></tr>
+          <tr><td>C6</td><td>録画アップロード</td><td>新人</td><td>模擬講義の録画をDriveに格納</td><td>Google Drive</td></tr>
+          <tr><td>C7</td><td>振り返り・改善</td><td>新人</td><td>チェックシートSummaryで振り返り + 動画セルフレビュー</td><td>Google スプレッドシート</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note">
+        <strong>C1〜C7 を繰り返し</strong>（週2〜3回）。<strong>エルダーが登壇テスト水準と判断するまで</strong>継続。<br>
+        <span style="font-size:.75rem;color:var(--muted);">P講師は平均4回だが、正社員はそれより多い回数が一般的（平均値は未集計）。</span>
+      </div>
+
+      <h3>評価項目</h3>
+      <table>
+        <thead><tr><th>評価方法</th><th>詳細</th></tr></thead>
+        <tbody>
+          <tr><td><strong>パフォーマンスチェックシート</strong></td><td>7項目 / 各0〜3点 / 21点満点</td></tr>
+          <tr><td><strong>録画命名規則</strong></td><td><code>模擬授業_講義箇所_yyyymmdd_name</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ====== Phase D: 登壇テスト ====== -->
+    <div class="section">
+      <h2><span class="phase-badge red">Phase D</span>登壇テスト</h2>
+
+      <h3>評価者（3名体制）</h3>
+      <table>
+        <thead><tr><th>#</th><th>評価者</th><th>役割</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>エルダー</strong></td><td>全体進行 + 評価</td></tr>
+          <tr><td>2</td><td><strong>SDG MGR</strong>（デリバリーMGR）</td><td>評価 + 総括コメント</td></tr>
+          <tr><td>3</td><td><strong>PMGメンバー</strong></td><td>評価</td></tr>
+        </tbody>
+      </table>
+
+      <h3>テスト当日の流れ</h3>
+      <table>
+        <thead><tr><th>#</th><th>ステップ</th><th>担当</th><th>内容</th><th>時間</th></tr></thead>
+        <tbody>
+          <tr><td>D1</td><td>テスト日程調整</td><td>エルダー</td><td>評価者3名のスケジュール確保</td><td>—</td></tr>
+          <tr><td>D2</td><td>講義箇所決定</td><td>エルダー</td><td>手書き・実装のテスト範囲を事前決定（新人には通知しない）</td><td>—</td></tr>
+          <tr><td>D3</td><td>講義箇所の通達</td><td>エルダー</td><td><strong>テスト開始10分前</strong>にSlackで通達（予約送信）</td><td>—</td></tr>
+          <tr><td>D4</td><td>オープニング</td><td>エルダー</td><td>応援コメント + 録画開始</td><td>1分</td></tr>
+          <tr><td>D5</td><td>手書きパート模擬講義</td><td>新人</td><td>指定箇所の手書きパート講義</td><td>20分</td></tr>
+          <tr><td>D6</td><td>手書きパート要点説明</td><td>新人</td><td>「このパート全体で受講生が押さえるべきポイント」を説明</td><td>2分</td></tr>
+          <tr><td>D7</td><td>手書きパート質疑応答</td><td>採点者3名</td><td>知識力確認（約5問）</td><td>5分</td></tr>
+          <tr><td>D8</td><td>実装パート模擬講義</td><td>新人</td><td>指定箇所の実装パート講義</td><td>20分</td></tr>
+          <tr><td>D9</td><td>実装パート要点説明</td><td>新人</td><td>要点の説明</td><td>2分</td></tr>
+          <tr><td>D10</td><td>実装パート質疑応答</td><td>採点者3名</td><td>知識力確認（約5問）</td><td>5分</td></tr>
+          <tr><td>D11</td><td>全体総括</td><td>SDG MGR</td><td>総括コメント</td><td>5分</td></tr>
+          <tr><td>D12</td><td>新人退出</td><td>新人</td><td>Zoom退出</td><td>—</td></tr>
+          <tr><td>D13</td><td>合否判定</td><td>採点者3名</td><td>合議で合否判定</td><td>30分</td></tr>
+          <tr><td>D14</td><td>結果通知</td><td>エルダー</td><td>合否と今後のアクションを伝達。不合格→再テスト or 協議</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <h3>合格基準</h3>
+      <table>
+        <thead><tr><th>評価軸</th><th>基準</th><th>評価方法</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>講師力</strong></td>
+            <td>パフォーマンスチェックシート <strong>18点以上</strong>（21点満点）</td>
+            <td>7項目 / 各0〜3点</td>
+          </tr>
+          <tr>
+            <td><strong>知識力</strong></td>
+            <td>質問 <strong>8-9問以上正解</strong>（約10問中）</td>
+            <td>模擬講義内の質問で確認</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ====== Phase E: 合格後 ====== -->
+    <div class="section">
+      <h2><span class="phase-badge orange">Phase E</span>合格後〜初回登壇</h2>
+
+      <table>
+        <thead><tr><th>#</th><th>ステップ</th><th>担当者</th><th>アクション</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>E1</td><td>アサイン開始</td><td>SDG アサインT</td><td>登壇テスト合格者をアサイン対象プールに追加</td><td>キカバディ / 登壇経験管理ファイル</td></tr>
+          <tr><td>E2</td><td>初回アサイン</td><td>SDG アサインT</td><td>優先コース（DLハンズオン、ML実践、デザイン思考等）から割当</td><td>初月は限定コースのみ</td></tr>
+          <tr><td>E3</td><td>初回登壇</td><td>新人 + 社内サポーター</td><td>初回は社内講師がサポーターとして同席</td><td>社内不可→資格ありP講師で代替可</td></tr>
+          <tr><td>E4</td><td>以降のアサイン</td><td>SDG アサインT</td><td>2ヶ月目以降は全コース対象（準備時間確保前提）</td><td></td></tr>
+          <tr><td>E5</td><td>ソロ登壇判定</td><td>SDG / PMG</td><td>オフライン: G3以上＋6ヶ月以上 / オンライン: 登壇5営業日以上</td><td></td></tr>
+        </tbody>
+      </table>
+
+      <div class="note orange">
+        <strong>登壇後の継続育成（As-Is）:</strong> 体系化された育成レーンは存在しない。OJT・案件経験を通じて属人的に成長。登壇後の講師力向上は現場依存。
+      </div>
+    </div>
+
   </div>
 
   <!-- ─── SUB: PMG配属期間 ─── -->
   <div id="sub-employee-pmg" class="sub-content">
     <div class="placeholder">
       <div class="icon">&#127919;</div>
-      <div>PMG配属期間（TTT含む）</div>
-      <div style="font-size:.75rem;margin-top:.3rem;">準備中 — PMG配属中の業務・TTT受講・SDG移行判定フローを整備予定</div>
+      <div>PMG配属期間（講師力養成コース含む）</div>
+      <div style="font-size:.75rem;margin-top:.3rem;">準備中 — PMG配属中の業務・講師力養成コース受講・SDG移行判定フローを整備予定</div>
     </div>
   </div>
 
